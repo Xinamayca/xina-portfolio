@@ -6,13 +6,14 @@
 }
 
 html, body {
-  overflow-x: hidden;
+  overflow-x: hidden; /* fallback for older browsers */
+  overflow-x: clip;   /* stops sideways scrolling without turning body into a scroll container */
   max-width: 100vw;
 }
 
 @font-face {
     font-family: 'Horst';
-    src: url('Horst Blackletter Demo.ttf'); /* Adjust the path if needed */
+    src: url('../assets/fonts/horst-blackletter-demo.ttf'); /* Adjust the path if needed */
   }
 
   @font-face{
@@ -23,9 +24,26 @@ html, body {
 }
 
 
-/* Smooth scrolling behavior */
-html {
-    scroll-behavior: smooth;
+/* Smooth scrolling is handled by Lenis in js/script.js.
+   CSS smooth scrolling would fight with it, so it's turned off while Lenis runs. */
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+/* Elements moved by GSAP get their own compositor layer */
+.logo,
+.project-date,
+.project-object img,
+.shape-img {
+    will-change: transform;
 }
 
 /* Style the navbar */
@@ -90,7 +108,7 @@ section {
   }
   
   .logo h1 {
-    font-size: 5vw; /* Large font size for the logo */
+    font-size: 50vw; /* Drawn 10x larger, then scaled down to 5vw by GSAP on scroll */
     font-family: 'Horst';
     color: black;
     font-weight: 100;
@@ -105,6 +123,8 @@ section {
     justify-content: center;
     height: 100vh;
     margin-top: 20px;
+    position: relative; /* the WORK heading and 3D image are positioned inside this section */
+    overflow-x: clip;   /* cut off whatever sticks out sideways so the page never scrolls horizontally */
 }
 
 .project-date {
@@ -167,7 +187,7 @@ section {
     right: -175px;
     letter-spacing: -20px;
     font-weight: 300;
-    bottom: -70vh;
+    bottom: calc(30vh + 20px);
 }
 
 .project-object {
@@ -180,7 +200,7 @@ section {
     position: absolute;
     rotate: -129deg;
     right: -500px;
-    top: 125vh;
+    top: calc(25vh - 20px);
 }
 
 #section3 {
@@ -460,3 +480,223 @@ section {
 
   
   
+
+/* ===========================
+   Mobile (phones and small tablets)
+   =========================== */
+@media (max-width: 768px) {
+
+  /* Sections grow with their content instead of being fixed to one screen */
+  section,
+  #section2,
+  #section3 {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh; /* ignores the mobile address bar showing/hiding */
+  }
+
+  /* Navbar: one compact bar across the top */
+  .navbar {
+    top: 0;
+    justify-content: flex-end;
+    padding: 14px 16px;
+    background-color: white;
+    font-size: 13px;
+  }
+
+  .navbar ul {
+    position: static;
+    transform: none;
+    display: flex;
+    gap: 16px;
+  }
+
+  .navbar-info {
+    display: none;
+  }
+
+  /* Home: logo starts large and shrinks into the top-left of the navbar */
+  .logo {
+    left: 16px;
+    top: 4px;
+    z-index: 11;
+  }
+
+  .logo h1 {
+    font-size: 40vw;
+    width: auto;
+  }
+
+  /* Work: stack the heading and project list vertically */
+  #section2 {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 80px 16px 48px;
+    margin-top: 0;
+  }
+
+  .project-date {
+    display: none;
+  }
+
+  .project-object {
+    order: -1;
+    flex: none;
+  }
+
+  .project-object h1 {
+    position: static;
+    rotate: 0deg;
+    font-size: 22vw;
+    letter-spacing: -0.06em;
+    margin-bottom: 16px;
+  }
+
+  .project-object img {
+    display: none;
+  }
+
+  .project {
+    flex: none;
+    margin-left: 0;
+  }
+
+  .project h1 {
+    font-size: 11vw;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+  }
+
+  .project p {
+    width: 100%;
+    font-size: 15px;
+    margin: 6px 0 28px;
+  }
+
+  /* About me: text, then photo */
+  #section3 {
+    padding: 80px 16px 48px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    padding: 0;
+    gap: 32px;
+  }
+
+  .about-me {
+    margin-left: 0;
+  }
+
+  .about-me h1 {
+    font-size: 14vw;
+    margin-right: 0;
+  }
+
+  .about-me p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .linked-logo img {
+    width: 40px;
+  }
+
+  .about-shape {
+    display: none;
+  }
+
+  .pic-mayca {
+    justify-content: center;
+  }
+
+  .pic-mayca img {
+    width: 80%;
+    margin-right: 0;
+  }
+
+  /* Project pages: text first, then images and videos, all in one column */
+  .project-container {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+
+  .fixed-right {
+    order: -1;
+    width: 100%;
+    height: auto;
+    position: static;
+    overflow: visible;
+    padding: 80px 16px 16px;
+  }
+
+  .fixed-right h1 {
+    font-size: 14vw;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+
+  .fixed-right p {
+    font-size: 16px;
+    line-height: 1.5;
+    width: 100%;
+  }
+
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tools img {
+    width: 40px;
+  }
+
+  .scrolling-left {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    padding: 16px;
+  }
+
+  .slideshow-wrapper {
+    height: auto;
+    aspect-ratio: 16 / 9; /* matches the brand guide pages */
+  }
+
+  .prev, .next {
+    font-size: 1.1rem;
+    padding: 8px 12px;
+  }
+
+  .prev {
+    left: 8px;
+  }
+
+  .next {
+    right: 8px;
+  }
+
+  .video-text-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 32px;
+  }
+
+  .prototype-text h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Heading above its video, even when the HTML lists the video first */
+  .video-text-wrapper .prototype-text {
+    order: -1;
+  }
+
+  .video-text-wrapper video {
+    width: auto;
+    max-width: 100%;
+    max-height: 75vh; /* portrait phone recordings would otherwise fill several screens */
+  }
+}
