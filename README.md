@@ -27,6 +27,7 @@ xina-portfolio/
 └── assets/
     ├── fonts/                  # Horst Blackletter
     ├── icons/                  # Tool and social icons (Figma, XD, Illustrator, Trello, Flutter, LinkedIn)
+    │   └── favicon/            # Tab icon, iPhone/Android home-screen icons, web manifest
     ├── images/
     │   ├── home/               # Images for the Home and Work sections
     │   └── about/              # Portrait and separator shape for About Me
