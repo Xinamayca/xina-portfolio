@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- Saved layout B (sticky sidebar) preview with example content. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Layout B — sticky sidebar</title>
+<link rel="stylesheet" href="https://use.typekit.net/nid8ici.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Helvetica, Arial, sans-serif; color: #000; background: #fff; }
+  .badge { position: fixed; bottom: 16px; right: 16px; z-index: 20; background: #000; color: #fff; font-size: 12px;
+           letter-spacing: .14em; text-transform: uppercase; padding: 8px 12px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 10; display: flex; justify-content: flex-end; gap: 28px;
+        padding: 22px 55px; background: #fff; font-size: 14px; letter-spacing: .06em; }
+  .label { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6b6b6b; }
+  .cond { font-family: "helvetica-neue-lt-pro-cond", "Arial Narrow", sans-serif; font-weight: 700; text-transform: uppercase; }
+
+  .wrap { display: grid; grid-template-columns: minmax(340px, 38%) 1fr; gap: 64px; padding: 0 55px; }
+  aside { position: sticky; top: 0; height: 100vh; padding-top: 120px; display: flex; flex-direction: column; }
+  h1 { font-family: "ivypresto-headline", serif; font-weight: 400; font-size: clamp(44px, 4.6vw, 80px); line-height: .95;
+       letter-spacing: -.02em; text-transform: uppercase; margin: 10px 0 28px; }
+  .intro { font-size: 18px; line-height: 1.55; margin-bottom: 32px; }
+  dl { border-top: 1px solid #e4e4e4; }
+  dl div { display: grid; grid-template-columns: 120px 1fr; padding: 12px 0; border-bottom: 1px solid #e4e4e4; align-items: baseline; }
+  dd { font-size: 17px; line-height: 1.2; }
+  .back { margin-top: auto; padding-bottom: 40px; }
+
+  main { padding-top: 120px; padding-bottom: 120px; }
+  .img { background: #f1f1f1; display: flex; align-items: center; justify-content: center; color: #9a9a9a;
+         font-size: 12px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 20px; }
+  .wide { aspect-ratio: 16/10; }
+  .tall { aspect-ratio: 4/5; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  section { margin: 56px 0 72px; max-width: 620px; }
+  section h2 { font-size: 26px; margin: 6px 0 14px; }
+  section p { font-size: 17px; line-height: 1.6; color: #333; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; font-size: 12px; gap: 18px; }
+    .wrap { grid-template-columns: 1fr; gap: 0; padding: 0 24px; }
+    aside { position: static; height: auto; padding-top: 88px; }
+    .back { display: none; }
+    main { padding-top: 32px; }
+    .pair { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="badge">Layout B — sticky sidebar</div>
+  <nav><span>HOME</span><span>WORK</span><span>ABOUT ME</span></nav>
+
+  <div class="wrap">
+    <aside>
+      <p class="label">Project 02 · 18-week internship</p>
+      <h1>Chromodynamics</h1>
+      <p class="intro">I researched and redesigned the brand of <strong>Chromodynamics</strong>, a microscopy company in Eindhoven,
+        creating the <strong>logo</strong>, <strong>brand guide</strong>, <strong>website prototype</strong> and <strong>app UI redesigns</strong>.</p>
+      <dl>
+        <div><dt class="label">Role</dt><dd class="cond">Brand &amp; UI designer</dd></div>
+        <div><dt class="label">Timeline</dt><dd class="cond">Sept 2025 – Jan 2026</dd></div>
+        <div><dt class="label">Client</dt><dd class="cond">Chromodynamics, Eindhoven</dd></div>
+        <div><dt class="label">Tools</dt><dd class="cond">Figma, Illustrator</dd></div>
+      </dl>
+      <p class="back label">← All projects</p>
+    </aside>
+
+    <main>
+      <div class="img wide">Cover image</div>
+      <section><p class="label">01</p><h2 class="cond">Challenge</h2>
+        <p>Short paragraph about what the client needed and why. The left column stays in place while you scroll through the work on the right.</p></section>
+      <div class="pair"><div class="img tall">Image</div><div class="img tall">Image</div></div>
+      <section><p class="label">02</p><h2 class="cond">Process</h2>
+        <p>Research, moodboards, sketches, iterations with the client.</p></section>
+      <div class="img wide">Image</div>
+      <section><p class="label">03</p><h2 class="cond">Result</h2>
+        <p>What was delivered and the impact it had.</p></section>
+      <div class="img wide">Image</div>
+    </main>
+  </div>
+</body>
+</html>

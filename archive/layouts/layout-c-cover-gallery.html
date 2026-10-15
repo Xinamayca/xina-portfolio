@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- Saved layout C (cover + gallery) preview with example content. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Layout C — cover and gallery</title>
+<link rel="stylesheet" href="https://use.typekit.net/nid8ici.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Helvetica, Arial, sans-serif; color: #000; background: #fff; }
+  .badge { position: fixed; bottom: 16px; right: 16px; z-index: 20; background: #000; color: #fff; font-size: 12px;
+           letter-spacing: .14em; text-transform: uppercase; padding: 8px 12px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 10; display: flex; justify-content: flex-end; gap: 28px;
+        padding: 22px 55px; font-size: 14px; letter-spacing: .06em; color: #fff; mix-blend-mode: difference; }
+  .label { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6b6b6b; }
+  .cond { font-family: "helvetica-neue-lt-pro-cond", "Arial Narrow", sans-serif; font-weight: 700; text-transform: uppercase; }
+
+  /* Full-screen cover with the title on top */
+  .cover { position: relative; height: 100vh; background: #1d1d1d; color: #fff; display: flex; flex-direction: column;
+           justify-content: flex-end; padding: 0 55px 48px; }
+  .cover::after { content: "Cover image (full screen)"; position: absolute; top: 50%; left: 50%; translate: -50% -50%;
+                  font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #777; }
+  .cover .label { color: #bbb; }
+  .cover h1 { font-family: "ivypresto-headline", serif; font-weight: 400; font-size: clamp(56px, 9vw, 150px); line-height: .9;
+              letter-spacing: -.03em; text-transform: uppercase; margin-top: 10px; }
+  .cover dl { display: flex; flex-wrap: wrap; gap: 16px 56px; margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.3); }
+  .cover dt { margin-bottom: 6px; }
+  .cover dd { font-size: 18px; }
+
+  /* Narrow centred text */
+  .text { max-width: 680px; margin: 110px auto; padding: 0 24px; }
+  .text .intro { font-size: clamp(22px, 2.2vw, 30px); line-height: 1.4; }
+  .text h2 { font-size: 26px; margin: 6px 0 12px; }
+  .text p { font-size: 18px; line-height: 1.6; color: #333; }
+
+  /* Mixed-size gallery */
+  .gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; padding: 0 55px; }
+  .img { background: #f1f1f1; display: flex; align-items: center; justify-content: center; color: #9a9a9a;
+         font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+  .g1 { grid-column: span 4; aspect-ratio: 4/3; }
+  .g2 { grid-column: span 2; }
+  .g3 { grid-column: span 2; aspect-ratio: 3/4; }
+  .g4 { grid-column: span 2; aspect-ratio: 3/4; }
+  .g5 { grid-column: span 2; aspect-ratio: 3/4; }
+  .g6 { grid-column: span 6; aspect-ratio: 21/9; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; font-size: 12px; gap: 18px; }
+    .cover { padding: 0 24px 32px; height: 90vh; }
+    .cover dl { gap: 14px 28px; }
+    .text { margin: 64px auto; }
+    .gallery { grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 24px; }
+    .g1, .g6 { grid-column: span 2; }
+    .g2, .g3, .g4, .g5 { grid-column: span 1; aspect-ratio: 3/4; }
+  }
+</style>
+</head>
+<body>
+  <div class="badge">Layout C — cover and gallery</div>
+  <nav><span>HOME</span><span>WORK</span><span>ABOUT ME</span></nav>
+
+  <header class="cover">
+    <p class="label">Project 02 · 18-week internship</p>
+    <h1>Chromodynamics</h1>
+    <dl>
+      <div><dt class="label">Role</dt><dd class="cond">Brand &amp; UI designer</dd></div>
+      <div><dt class="label">Timeline</dt><dd class="cond">Sept 2025 – Jan 2026</dd></div>
+      <div><dt class="label">Client</dt><dd class="cond">Chromodynamics, Eindhoven</dd></div>
+      <div><dt class="label">Tools</dt><dd class="cond">Figma, Illustrator</dd></div>
+    </dl>
+  </header>
+
+  <div class="text">
+    <p class="intro">I researched and redesigned the brand of <strong>Chromodynamics</strong>, a microscopy company in Eindhoven,
+      creating the <strong>logo</strong>, <strong>brand guide</strong>, <strong>website prototype</strong> and <strong>app UI redesigns</strong>.</p>
+  </div>
+
+  <div class="gallery">
+    <div class="img g1">Image</div><div class="img g2">Image</div>
+    <div class="img g3">Image</div><div class="img g4">Image</div><div class="img g5">Image</div>
+  </div>
+
+  <div class="text">
+    <p class="label">01 — 03</p>
+    <h2 class="cond">Challenge, process, result</h2>
+    <p>The story is told in short text blocks between the image groups, so the work does most of the talking.</p>
+  </div>
+
+  <div class="gallery" style="margin-bottom: 120px">
+    <div class="img g6">Wide image</div>
+  </div>
+</body>
+</html>

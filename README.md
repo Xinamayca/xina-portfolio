@@ -8,10 +8,10 @@ Personal portfolio website for Xinamayca de Cuba, an ICT & Media Design student 
 | --- | --- |
 | [`index.html`](index.html) | Main page. It has three scrolling sections: **Home** (an animated "XINA" logo), **Work** (the project list) and **About Me**. |
 | [`terra.html`](terra.html) | Case study: **Terra**, a field app and staff dashboard for the Humber Arboretum (Global Acting in IT minor, Feb – Jun 2026). Content still to be added. |
-| [`spoiler-alert.html`](spoiler-alert.html) | Case study: **Spoiler Alert!**, a Flutter app that warns you when food is about to expire (Semester 4). Includes prototype and app demo videos. |
+| [`chromodynamics.html`](chromodynamics.html) | Case study: **Chromodynamics**, rebranding a microscopy company in Eindhoven (18-week internship, Sept 2025 – Jan 2026). Images still to be added. |
+| [`reia.html`](reia.html) | Case study: **REIA**, website for REIA Motors, a used-car dealer in Oranjestad, Aruba, built with a CMS the client manages (Feb – Mar 2026). Images still to be added. |
 | [`archive/go-it.html`](archive/go-it.html) | Archived case study: rebranding Xtreme Computers into **Go IT** (Semester 3). Not linked from the site anymore. |
-
-The third project listed on the home page, **Hear Me Art**, doesn't have its own page yet.
+| [`archive/spoiler-alert.html`](archive/spoiler-alert.html) | Archived case study: **Spoiler Alert!**, a Flutter app that warns you when food is about to expire (Semester 4). Not linked from the site anymore. |
 
 ## Project structure
 
@@ -19,9 +19,12 @@ The third project listed on the home page, **Hear Me Art**, doesn't have its own
 xina-portfolio/
 ├── index.html                  # Home / Work / About Me
 ├── terra.html                  # Terra case study
-├── spoiler-alert.html          # Spoiler Alert! case study
+├── chromodynamics.html         # Chromodynamics case study
+├── reia.html                   # REIA case study
 ├── archive/
-│   └── go-it.html              # Archived Go IT case study (not linked from the site)
+│   ├── go-it.html              # Archived Go IT case study (not linked from the site)
+│   ├── spoiler-alert.html      # Archived Spoiler Alert! case study (not linked from the site)
+│   └── layouts/                # Saved project page layouts: A editorial, B sticky sidebar, C cover + gallery
 ├── css/
 │   └── styles.css              # Shared styles for all pages (incl. @font-face rules)
 ├── js/
@@ -36,11 +39,12 @@ xina-portfolio/
     │   └── about/              # Portrait and separator shape for About Me
     ├── projects/
     │   ├── terra/              # Terra images and videos
-    │   ├── spoiler-alert/      # App images
-    │   │   └── videos/         # Prototype and Flutter app demos
+    │   ├── chromodynamics/     # Chromodynamics images
+    │   ├── reia/               # REIA images
     │   └── opinion-week/       # Opinion Week app (Shift) screens
     └── archive/                # Images not currently used on the site
-        └── go-it/              # Archived Go IT logo, mockups and brand guide (b-01 … b-12)
+        ├── go-it/              # Archived Go IT logo, mockups and brand guide (b-01 … b-12)
+        └── spoiler-alert/      # Archived Spoiler Alert! images and demo videos
 ```
 
 ### Conventions

@@ -154,7 +154,7 @@ section {
 .project h1 {
     font-family: "ivypresto-headline", serif;
     font-weight: 100;
-    font-size: 10vh;
+    font-size: min(10vh, 4.6vw); /* 4.6vw keeps a long title like CHROMODYNAMICS clear of the WORK artwork */
     line-height: 1;
     letter-spacing: -1px;
     padding: 0;
@@ -208,6 +208,47 @@ section {
     line-height: 1.5;
     letter-spacing: 0.04em;
     color: #333;
+}
+
+/* Hover (mouse devices only): the grey line under the title draws itself in black
+   from left to right, and linked titles get a small arrow that slides in. */
+@media (hover: hover) and (min-width: 769px) {
+    .project .project-desc {
+        position: relative;
+    }
+
+    .project .project-desc::before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: #000;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .project-item:hover .project-desc::before {
+        transform: scaleX(1);
+    }
+
+    .project-item a h1::after {
+        content: "→";
+        display: inline-block;
+        margin-left: 0.25em;
+        font-size: 0.45em;
+        vertical-align: middle;
+        opacity: 0;
+        transform: translateX(-0.6em);
+        transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .project-item:hover a h1::after {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /* Make the right (last) flexbox larger */
@@ -369,7 +410,7 @@ section {
   .fixed-right h1 {
     font-family: "ivypresto-headline", serif;
     font-weight: 100;
-    font-size: 6vw;
+    font-size: 5vw; /* fits long names like Chromodynamics in the half-width column */
     letter-spacing: -1px;
     margin-bottom: -5px;
     margin-top: 60px;
@@ -549,6 +590,188 @@ section {
 
   
   
+
+/* ===========================
+   Case study pages (terra.html, chromodynamics.html, reia.html)
+   One editorial column: title, facts row, intro, images and numbered sections
+   =========================== */
+
+/* White strip behind the fixed navbar so page content doesn't run under the links */
+.case-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 84px;
+  background: #fff;
+  z-index: 9;
+}
+
+.case {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 150px 55px 0;
+  font-family: 'helvetica';
+}
+
+.case-kicker {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+
+.case-title {
+  margin: 12px 0 48px;
+  font-family: "ivypresto-headline", serif;
+  font-weight: 400;
+  font-size: clamp(56px, 8.4vw, 128px); /* sized so CHROMODYNAMICS fits the column */
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* Facts row: small grey labels with poster-style values, like the Work section dates */
+.case-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 24px 0;
+  border-top: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.case-facts dt {
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+
+.case-facts dd {
+  font-family: "helvetica-neue-lt-pro-cond", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.case-intro {
+  max-width: 900px;
+  margin: 56px 0 72px;
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.45;
+}
+
+.case-media {
+  margin: 0 0 24px;
+}
+
+.case-media img,
+.case-media video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.case-media .media-placeholder {
+  aspect-ratio: 16 / 9;
+}
+
+.case-media-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.case-media-grid .media-placeholder {
+  aspect-ratio: 4 / 5;
+}
+
+/* Numbered sections: label on the left, text on the right */
+/* <section> is full-screen height on the home page; not here */
+.case .case-section {
+  height: auto;
+  font-size: inherit;
+}
+
+.case-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+  margin: 72px 0 96px;
+}
+
+.case-section h2 {
+  font-family: "helvetica-neue-lt-pro-cond", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.case-section h2 span {
+  display: block;
+  margin-bottom: 8px;
+  font-family: 'helvetica';
+  font-weight: normal;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: #6b6b6b;
+}
+
+.case-section p {
+  max-width: 640px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Bits of content that still need to be filled in */
+.case-todo {
+  color: #9a9a9a;
+  font-style: italic;
+}
+
+/* "Next project" link at the bottom */
+.case-next {
+  display: block;
+  margin-top: 120px;
+  padding: 40px 0 80px;
+  border-top: 1px solid #e4e4e4;
+  color: #000;
+  text-decoration: none;
+}
+
+.case-next-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+
+.case-next-title {
+  display: block;
+  margin-top: 12px;
+  font-family: "ivypresto-headline", serif;
+  font-size: clamp(48px, 7vw, 120px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.case-next-arrow {
+  display: inline-block;
+  font-size: 0.5em;
+  vertical-align: middle;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.case-next:hover .case-next-arrow {
+  transform: translateX(0.4em);
+}
 
 /* ===========================
    Mobile (phones and small tablets)
@@ -753,7 +976,7 @@ section {
   }
 
   .fixed-right h1 {
-    font-size: 16vw;
+    font-size: 12vw; /* fits long names like Chromodynamics on a phone */
     line-height: 0.95;
     letter-spacing: -0.03em;
     margin: 0 0 24px;
@@ -852,5 +1075,61 @@ section {
     max-width: 100%;
     max-height: 75vh; /* portrait phone recordings would otherwise fill several screens */
     align-self: center;
+  }
+
+  /* ---------- Case study pages ---------- */
+  .case-page::before {
+    height: 48px;
+  }
+
+  .case {
+    padding: 96px var(--gutter) 0;
+  }
+
+  .case-title {
+    font-size: 10vw;
+    margin-bottom: 32px;
+  }
+
+  .case-facts {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 16px;
+  }
+
+  .case-facts dd {
+    font-size: 17px;
+  }
+
+  .case-intro {
+    font-size: 19px;
+    margin: 32px 0 40px;
+  }
+
+  .case-media-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .case-media-grid .media-placeholder {
+    aspect-ratio: 16 / 9;
+  }
+
+  .case-section {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 40px 0 56px;
+  }
+
+  .case-section p {
+    font-size: 16px;
+  }
+
+  .case-next {
+    margin-top: 64px;
+    padding: 28px 0 56px;
+  }
+
+  .case-next-title {
+    font-size: 13vw;
   }
 }
