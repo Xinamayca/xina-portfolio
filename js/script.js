@@ -2,8 +2,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// Phones and tablets already scroll smoothly by themselves; Lenis only adds work there
+// and fights iOS momentum scrolling, so it's used for mouse/trackpad devices only.
+const isTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
 // Smooth scrolling with Lenis, driven by GSAP's ticker so ScrollTrigger stays in sync
-if (!reduceMotion) {
+if (!reduceMotion && !isTouch) {
     const lenis = new Lenis({ lerp: 0.1 });
 
     lenis.on("scroll", ScrollTrigger.update);
@@ -96,28 +100,41 @@ mm.add("(min-width: 769px)", () => {
 // Mobile: logo starts centred on the screen and shrinks into the navbar.
 // The decorative Work image and About shape are hidden in CSS, so they aren't animated here.
 mm.add("(max-width: 768px)", () => {
+    // Measurements of the Horst lettering, relative to its font size:
+    // the ink starts 2.5% below the top of the text box and is 110.5% tall.
+    const logoFontSize = () => parseFloat(getComputedStyle(document.querySelector(".logo h1")).fontSize);
+    const LOGO_TOP = 4; // matches .logo { top } in the mobile CSS
+
     gsap.fromTo(".logo",
-        { scale: 1, y: () => window.innerHeight * 0.3 },
+        {
+            scale: 1,
+            // Centre the lettering vertically on the screen
+            y: () => window.innerHeight / 2 - LOGO_TOP - logoFontSize() * (0.025 + 1.105 / 2),
+        },
         {
             scrollTrigger: {
                 trigger: "#section1",
                 start: "top top",
                 end: "60% top",
-                scrub: true,
+                scrub: 0.5, // a little smoothing hides iOS delivering scroll positions a frame late
                 invalidateOnRefresh: true,
             },
-            scale: 0.22,
+            // End at about 34px on a 390px-wide phone, small enough to sit in the navbar
+            scale: () => (window.innerWidth * 0.088) / logoFontSize(),
             y: 0,
+            force3D: true, // keep the logo on its own GPU layer so Safari doesn't redraw it every frame
             ease: "none",
         }
     );
 
     // Projects fade up as they come into view
     gsap.utils.toArray("#section2 .project-title").forEach((title) => {
-        // The description is the <p> after the title (or after its link)
-        const description = (title.closest("a") || title).nextElementSibling;
+        // The "01 — date" label sits before the title (or its link), the description after it
+        const block = title.closest("a") || title;
+        const label = block.previousElementSibling;
+        const description = block.nextElementSibling;
 
-        gsap.from([title, description], {
+        gsap.from([label, title, description], {
             scrollTrigger: {
                 trigger: title,
                 start: "top 90%",

@@ -481,34 +481,50 @@ section {
   
   
 
+/* Project labels are only shown in the mobile layout; desktop has the date column */
+.project-meta {
+  display: none;
+}
+
 /* ===========================
    Mobile (phones and small tablets)
    =========================== */
 @media (max-width: 768px) {
 
-  /* Sections grow with their content instead of being fixed to one screen */
-  section,
+  :root {
+    --gutter: 24px;       /* space on the left and right of the screen */
+    --muted: #6b6b6b;     /* grey for small labels and descriptions */
+    --line: #e4e4e4;      /* thin divider lines */
+  }
+
+  /* Only the opening screen needs to be full height (the logo shrinks while you scroll through it).
+     The other sections are as tall as their content, so there are no big empty gaps. */
+  #section1 {
+    height: 100vh;
+    height: 100svh; /* ignores the mobile address bar showing/hiding */
+  }
+
   #section2,
   #section3 {
     height: auto;
-    min-height: 100vh;
-    min-height: 100svh; /* ignores the mobile address bar showing/hiding */
+    min-height: 0;
   }
 
-  /* Navbar: one compact bar across the top */
+  /* Navbar: one slim bar across the top */
   .navbar {
     top: 0;
     justify-content: flex-end;
-    padding: 14px 16px;
+    padding: 16px var(--gutter);
     background-color: white;
-    font-size: 13px;
+    font-size: 12px;
+    letter-spacing: 0.06em;
   }
 
   .navbar ul {
     position: static;
     transform: none;
     display: flex;
-    gap: 16px;
+    gap: 20px;
   }
 
   .navbar-info {
@@ -517,22 +533,25 @@ section {
 
   /* Home: logo starts large and shrinks into the top-left of the navbar */
   .logo {
-    left: 16px;
+    left: 14.5px; /* the X starts ~1.5px into its text box, so this centres the lettering */
     top: 4px;
     z-index: 11;
   }
 
   .logo h1 {
-    font-size: 40vw;
+    /* "XINA" is drawn 1.855x as wide as its font size, so this fills the
+       screen width with a 16px gap on each side */
+    font-size: calc((100vw - 32px) / 1.86);
     width: auto;
+    line-height: 1.15;
   }
 
-  /* Work: stack the heading and project list vertically */
+  /* ---------- Work ---------- */
   #section2 {
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    padding: 80px 16px 48px;
+    padding: 96px var(--gutter) 64px;
     margin-top: 0;
   }
 
@@ -548,9 +567,10 @@ section {
   .project-object h1 {
     position: static;
     rotate: 0deg;
-    font-size: 22vw;
-    letter-spacing: -0.06em;
-    margin-bottom: 16px;
+    font-size: 20vw;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
   }
 
   .project-object img {
@@ -562,27 +582,45 @@ section {
     margin-left: 0;
   }
 
-  .project h1 {
-    font-size: 11vw;
-    line-height: 1.05;
-    letter-spacing: -0.5px;
-  }
-
-  .project p {
+  /* Small "01 — OKT 2024" label above each project, with a divider line */
+  .project .project-meta {
+    display: block;
     width: 100%;
-    font-size: 15px;
-    margin: 6px 0 28px;
+    margin: 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
   }
 
-  /* About me: text, then photo */
+  .project h1 {
+    font-size: 10vw;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-top: 8px;
+  }
+
+  .project p:not(.project-meta) {
+    width: 100%;
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin: 10px 0 32px;
+  }
+
+  /* ---------- About me ---------- */
   #section3 {
-    padding: 80px 16px 48px;
+    align-items: flex-start;
+    padding: 64px var(--gutter) 80px;
   }
 
   .about-container {
     flex-direction: column;
+    align-items: stretch;
     padding: 0;
-    gap: 32px;
+    gap: 40px;
   }
 
   .about-me {
@@ -590,17 +628,20 @@ section {
   }
 
   .about-me h1 {
-    font-size: 14vw;
-    margin-right: 0;
+    font-size: 16vw;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 0 0 20px;
   }
 
   .about-me p {
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.65;
   }
 
   .linked-logo img {
-    width: 40px;
+    width: 32px;
+    margin-top: 24px;
   }
 
   .about-shape {
@@ -612,11 +653,11 @@ section {
   }
 
   .pic-mayca img {
-    width: 80%;
+    width: 85%;
     margin-right: 0;
   }
 
-  /* Project pages: text first, then images and videos, all in one column */
+  /* ---------- Project pages: text first, then images and videos ---------- */
   .project-container {
     flex-direction: column;
     height: auto;
@@ -629,25 +670,43 @@ section {
     height: auto;
     position: static;
     overflow: visible;
-    padding: 80px 16px 16px;
+    padding: 96px var(--gutter) 8px;
   }
 
   .fixed-right h1 {
-    font-size: 14vw;
-    margin-top: 0;
-    margin-bottom: 12px;
+    font-size: 16vw;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 0 0 24px;
   }
 
   .fixed-right p {
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.65;
     width: 100%;
+  }
+
+  /* "Tools" becomes a small label with a divider, like the project labels */
+  .fixed-right h3 {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 11px;
+    font-weight: normal;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .fixed-right h3 + br {
+    display: none;
   }
 
   .tools {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
+    margin-top: 12px;
   }
 
   .tools img {
@@ -658,17 +717,26 @@ section {
     width: 100%;
     height: auto;
     overflow: visible;
-    padding: 16px;
+    padding: 32px var(--gutter) 64px;
+  }
+
+  .scrolling-left img {
+    margin-bottom: 24px;
   }
 
   .slideshow-wrapper {
     height: auto;
     aspect-ratio: 16 / 9; /* matches the brand guide pages */
+    margin: 0 0 24px;
+  }
+
+  .slideshow-container {
+    border-width: 1px;
   }
 
   .prev, .next {
-    font-size: 1.1rem;
-    padding: 8px 12px;
+    font-size: 1rem;
+    padding: 6px 11px;
   }
 
   .prev {
@@ -682,11 +750,17 @@ section {
   .video-text-wrapper {
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 32px;
+    gap: 12px;
+    margin-bottom: 40px;
   }
 
+  /* Video headings become small labels too */
   .prototype-text h1 {
-    font-size: 1.5rem;
+    font-size: 11px;
+    font-weight: normal;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
 
   /* Heading above its video, even when the HTML lists the video first */
@@ -698,5 +772,6 @@ section {
     width: auto;
     max-width: 100%;
     max-height: 75vh; /* portrait phone recordings would otherwise fill several screens */
+    align-self: center;
   }
 }
