@@ -52,16 +52,17 @@ mm.add("(min-width: 769px)", () => {
         }
     );
 
-    // Project date animation in Section 2
-    gsap.to("#section2 .project-date", {
+    // Projects slide in from the left one after another
+    gsap.from("#section2 .project-item", {
         scrollTrigger: {
             trigger: "#section2",
             start: "top 70%",
             end: "top 5%",
             scrub: 1,
         },
-        x: 75,
-        opacity: 1,
+        x: -75,
+        opacity: 0,
+        stagger: 0.15,
         ease: "power2.out"
     });
 
@@ -128,15 +129,11 @@ mm.add("(max-width: 768px)", () => {
     );
 
     // Projects fade up as they come into view
-    gsap.utils.toArray("#section2 .project-title").forEach((title) => {
-        // The "01 — date" label sits before the title (or its link), the description after it
-        const block = title.closest("a") || title;
-        const label = block.previousElementSibling;
-        const description = block.nextElementSibling;
-
-        gsap.from([label, title, description], {
+    gsap.utils.toArray("#section2 .project-item").forEach((item) => {
+        // Title, date and description fade up one after another
+        gsap.from(item.children, {
             scrollTrigger: {
-                trigger: title,
+                trigger: item,
                 start: "top 90%",
                 toggleActions: "play none none reverse",
             },
@@ -146,31 +143,5 @@ mm.add("(max-width: 768px)", () => {
             stagger: 0.1,
             ease: "power2.out",
         });
-    });
-});
-
-// Underline animation for project h1 elements
-document.querySelectorAll("#section2 .project-title").forEach((title) => {
-    // Create an underline element dynamically
-    const underline = document.createElement("div");
-    underline.style.position = "absolute";
-    underline.style.left = "0";
-    underline.style.width = title.getAttribute("data-underline-width") || "100%";
-    underline.style.height = "2px"; // Adjust thickness if needed
-    underline.style.backgroundColor = "black"; // Underline color
-    underline.style.pointerEvents = "none"; // Prevent interaction
-    title.style.position = "relative"; // Ensure the h1 is positioned relatively
-    title.appendChild(underline);
-
-    // Grow from the left with scaleX instead of width, so the browser doesn't re-layout every frame
-    gsap.set(underline, { y: -8, scaleX: 0, transformOrigin: "left center" });
-
-    // Hover effect
-    title.addEventListener("mouseenter", () => {
-        gsap.to(underline, { scaleX: 1, duration: 0.4, ease: "power3.out", overwrite: true });
-    });
-
-    title.addEventListener("mouseleave", () => {
-        gsap.to(underline, { scaleX: 0, duration: 0.3, ease: "power3.out", overwrite: true });
     });
 });

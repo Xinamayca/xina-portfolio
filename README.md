@@ -7,8 +7,9 @@ Personal portfolio website for Xinamayca de Cuba, an ICT & Media Design student 
 | Page | Description |
 | --- | --- |
 | [`index.html`](index.html) | Main page. It has three scrolling sections: **Home** (an animated "XINA" logo), **Work** (the project list) and **About Me**. |
-| [`go-it.html`](go-it.html) | Case study: rebranding Xtreme Computers into **Go IT** (Semester 3). Includes a brand-guide slideshow. |
+| [`terra.html`](terra.html) | Case study: **Terra**, a field app and staff dashboard for the Humber Arboretum (Global Acting in IT minor, Feb – Jun 2026). Content still to be added. |
 | [`spoiler-alert.html`](spoiler-alert.html) | Case study: **Spoiler Alert!**, a Flutter app that warns you when food is about to expire (Semester 4). Includes prototype and app demo videos. |
+| [`archive/go-it.html`](archive/go-it.html) | Archived case study: rebranding Xtreme Computers into **Go IT** (Semester 3). Not linked from the site anymore. |
 
 The third project listed on the home page, **Hear Me Art**, doesn't have its own page yet.
 
@@ -17,8 +18,10 @@ The third project listed on the home page, **Hear Me Art**, doesn't have its own
 ```
 xina-portfolio/
 ├── index.html                  # Home / Work / About Me
-├── go-it.html                  # Go IT case study
+├── terra.html                  # Terra case study
 ├── spoiler-alert.html          # Spoiler Alert! case study
+├── archive/
+│   └── go-it.html              # Archived Go IT case study (not linked from the site)
 ├── css/
 │   └── styles.css              # Shared styles for all pages (incl. @font-face rules)
 ├── js/
@@ -32,12 +35,12 @@ xina-portfolio/
     │   ├── home/               # Images for the Home and Work sections
     │   └── about/              # Portrait and separator shape for About Me
     ├── projects/
-    │   ├── go-it/              # Logo, website mockups, business cards
-    │   │   └── brand-guide/    # Brand guide pages b-01 … b-12
+    │   ├── terra/              # Terra images and videos
     │   ├── spoiler-alert/      # App images
     │   │   └── videos/         # Prototype and Flutter app demos
     │   └── opinion-week/       # Opinion Week app (Shift) screens
     └── archive/                # Images not currently used on the site
+        └── go-it/              # Archived Go IT logo, mockups and brand guide (b-01 … b-12)
 ```
 
 ### Conventions
@@ -69,7 +72,7 @@ An internet connection is required for:
 
 ## Editing content
 
-- **Add a project:** add an entry to the `.project` and `.project-date` blocks in `index.html`. Use one of the case study pages as a template for its own page. Give each title a `data-underline-width` attribute for the hover underline.
+- **Add a project:** copy one of the `.project-item` blocks in `index.html` (title, then `.project-date`, then `.project-desc`). Use one of the case study pages as a template for its own page.
 - **Slideshow images:** each case study page has `.slide` elements inside `#slideshow`. `js/slideshow.js` picks them up automatically: slides advance every 3 seconds, pause on hover, and open full-screen on click.
 - **Animations:** all scroll animations are in `js/script.js`.
 

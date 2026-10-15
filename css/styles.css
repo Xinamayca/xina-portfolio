@@ -127,40 +127,87 @@ section {
     overflow-x: clip;   /* cut off whatever sticks out sideways so the page never scrolls horizontally */
 }
 
-.project-date {
-    flex-grow: 0;    /* Prevents it from growing */
-    flex-shrink: 1;  /* Allows it to shrink if needed */
-    flex-basis: 15%; /* Set a smaller base width */
-    justify-content: center;
-
-}
-
-/* Center project section (middle) */
+/* Project list (left/middle) */
 .project {
-    flex-grow: 2;    /* Allows it to grow more than .project-date */
+    flex-grow: 2;
     flex-shrink: 1;
-    flex-basis: 50%; /* Sets the middle section to a larger width */
-    margin-left: 30px;
+    flex-basis: 60%;
+    padding: 0 40px 0 55px;
 }
 
-.project-date p {
-    margin: 150px 0px;
-    position: relative;
-    top: -27px;
-    left: -20px;
-    font-family: 'helvetica';
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 100;
+/* Each project: date in its own column fully on the left, title and description on the right.
+   The date sits on the thin line between the title and the description. */
+.project-item {
+    display: grid;
+    grid-template-columns: clamp(150px, 13vw, 250px) 1fr;
+    grid-template-areas:
+        ".    title"
+        "date desc";
+    padding: 2vh 0;
+}
+
+.project-item > a,
+.project-item > h1 {
+    grid-area: title;
 }
 
 .project h1 {
     font-family: "ivypresto-headline", serif;
     font-weight: 100;
     font-size: 10vh;
+    line-height: 1;
     letter-spacing: -1px;
     padding: 0;
     margin: 0;
+}
+
+/* Poster-style date: small "PROJECT 01" label above a tall bold condensed date,
+   centred on the line above the description */
+.project .project-date {
+    grid-area: date;
+    align-self: start;
+    translate: 0 -50%; /* move up by half its height so its middle sits on the line */
+    width: auto;
+    margin: 0;
+}
+
+.project-date span {
+    display: block;
+}
+
+.project-num {
+    margin-bottom: 0.7vh;
+    font-family: 'helvetica';
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+}
+
+.project-when {
+    font-family: "helvetica-neue-lt-pro-cond", "Arial Narrow", sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 3.4vh, 40px);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+}
+
+.project-year {
+    display: block; /* year on its own line */
+}
+
+.project .project-desc {
+    grid-area: desc;
+    width: auto;
+    margin: 0;
+    padding-top: 1.4vh;
+    padding-right: max(0px, calc(100% - 600px)); /* line runs full width, text wraps at ~600px */
+    border-top: 1px solid #e4e4e4;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #333;
 }
 
 /* Make the right (last) flexbox larger */
@@ -340,6 +387,28 @@ section {
     width: 50px;
   }
 
+  /* Date / context line under a project page title */
+  .fixed-right .project-subtitle {
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+    margin-bottom: 24px;
+  }
+
+  /* Stand-in for project images that haven't been added yet */
+  .media-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4 / 3;
+    border: 1px dashed #c8c8c8;
+    color: #9a9a9a;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .project a {
     text-decoration: none;
     color: black;
@@ -481,11 +550,6 @@ section {
   
   
 
-/* Project labels are only shown in the mobile layout; desktop has the date column */
-.project-meta {
-  display: none;
-}
-
 /* ===========================
    Mobile (phones and small tablets)
    =========================== */
@@ -555,10 +619,6 @@ section {
     margin-top: 0;
   }
 
-  .project-date {
-    display: none;
-  }
-
   .project-object {
     order: -1;
     flex: none;
@@ -579,35 +639,54 @@ section {
 
   .project {
     flex: none;
-    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
-  /* Small "01 — OKT 2024" label above each project, with a divider line */
-  .project .project-meta {
+  /* Same order as desktop: title, date, description, with a divider line between projects */
+  .project-item {
     display: block;
-    width: 100%;
-    margin: 0;
-    padding-top: 20px;
+    padding: 20px 0 28px;
     border-top: 1px solid var(--line);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    color: var(--muted);
+  }
+
+  .project-item:last-child {
+    border-bottom: 1px solid var(--line);
   }
 
   .project h1 {
     font-size: 10vw;
     line-height: 1;
     letter-spacing: -0.02em;
-    margin-top: 8px;
   }
 
-  .project p:not(.project-meta) {
+  /* Label and date on one line: "PROJECT 01  FEB – JUN 2026" */
+  .project .project-date {
+    translate: none;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 8px 0 6px;
+  }
+
+  .project-num {
+    margin-bottom: 0;
+  }
+
+  .project-when {
+    font-size: 17px;
+  }
+
+  .project-date .project-year {
+    display: inline;
+  }
+
+  .project .project-desc {
     width: 100%;
+    padding-top: 0;
+    border-top: none;
     font-size: 13px;
-    line-height: 1.5;
-    letter-spacing: 0.04em;
     color: var(--muted);
-    margin: 10px 0 32px;
   }
 
   /* ---------- About me ---------- */
