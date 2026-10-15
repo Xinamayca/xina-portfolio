@@ -76,10 +76,6 @@ An internet connection is required for:
 
 The site is fully static, so it can be hosted on any static host. To use **GitHub Pages**, go to *Settings → Pages* and publish from the `main` branch (root folder). `index.html` is at the top level, so the site opens at the main Pages URL.
 
-## Notes
-
-- `spoiler-alert.html` currently uses the `<title>` "GO IT Project". You'll probably want to change it.
-
 ## Contact
 
 [LinkedIn — Xinamayca de Cuba](https://www.linkedin.com/in/xinamayca-de-cuba-067176293/)
