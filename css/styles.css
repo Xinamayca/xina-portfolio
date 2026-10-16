@@ -774,6 +774,250 @@ section {
 }
 
 /* ===========================
+   Cover project pages (layout C): full-screen dark cover with the title on top,
+   short centred text blocks, mixed-size image gallery and a black "next project" block
+   =========================== */
+
+/* Navbar is white while it sits over the dark cover (js/cover-page.js toggles .on-cover),
+   black again once you scroll past it */
+.cover-page .navbar a,
+.cover-page .navbar-info {
+  transition: color 0.3s ease;
+}
+
+.cover-page .navbar.on-cover a,
+.cover-page .navbar.on-cover .navbar-info {
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+}
+
+.cv-cover {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 55px 48px;
+  background: #1d1d1d;
+  color: #fff;
+  overflow: hidden;
+  font-family: 'helvetica';
+}
+
+/* Cover image fills the whole screen behind the title */
+.cv-cover-media {
+  position: absolute;
+  inset: 0;
+}
+
+.cv-cover-media img,
+.cv-cover-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark fades at the bottom (title) and top (navbar) so text stays readable on any image */
+.cv-cover-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0) 60%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 25%);
+}
+
+.cv-cover-placeholder {
+  position: absolute;
+  white-space: nowrap;
+  top: 45%;
+  left: 50%;
+  translate: -50% -50%;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.cv-cover-content {
+  position: relative;
+  animation: cv-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes cv-rise {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-cover-content { animation: none; }
+}
+
+.cv-kicker,
+.cv-label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+
+.cv-cover .cv-kicker,
+.cv-cover .cv-label {
+  color: #bbb;
+}
+
+.cv-title {
+  margin-top: 10px;
+  font-family: "ivypresto-headline", serif;
+  font-weight: 400;
+  font-size: clamp(56px, 9vw, 150px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.cv-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 56px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cv-facts dt {
+  margin-bottom: 6px;
+}
+
+.cv-facts dd,
+.cv-section h2 {
+  font-family: "helvetica-neue-lt-pro-cond", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.cv-facts dd {
+  font-size: 18px;
+}
+
+/* Bits of content that still need to be filled in */
+.cv-todo {
+  opacity: 0.55;
+  font-style: italic;
+}
+
+/* Short centred text blocks between the images */
+.cv-text {
+  max-width: 680px;
+  margin: 110px auto;
+  padding: 0 24px;
+  font-family: 'helvetica';
+}
+
+.cv-intro {
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.4;
+}
+
+.cv-section + .cv-section {
+  margin-top: 56px;
+}
+
+.cv-section h2 {
+  margin: 6px 0 12px;
+  font-size: 26px;
+}
+
+.cv-section p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* <section> is full-screen height on the home page; not here */
+.cover-page section.cv-section {
+  height: auto;
+  font-size: inherit;
+}
+
+/* Mixed-size gallery on a 6-column grid */
+.cv-gallery {
+  display: grid;
+  font-family: 'helvetica';
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  padding: 0 55px;
+}
+
+.cv-gallery > * {
+  margin: 0;
+  overflow: hidden;
+  background: #f1f1f1;
+}
+
+.cv-gallery img,
+.cv-gallery video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cv-gallery .media-placeholder {
+  height: 100%;
+  padding: 0 12px;
+  text-align: center;
+  border: none;
+  aspect-ratio: auto;
+}
+
+.cv-g-large  { grid-column: span 4; aspect-ratio: 4 / 3; }
+.cv-g-side   { grid-column: span 2; }
+.cv-g-third  { grid-column: span 2; aspect-ratio: 3 / 4; }
+.cv-g-wide   { grid-column: span 6; aspect-ratio: 21 / 9; }
+
+/* Show an image at its own proportions instead of cropping it */
+.cv-gallery .cv-natural { aspect-ratio: auto; }
+
+/* Big black "next project" block */
+.cv-next {
+  display: block;
+  margin-top: 120px;
+  padding: 72px 55px 88px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'helvetica';
+}
+
+.cv-next .cv-label {
+  color: #999;
+}
+
+.cv-next-title {
+  display: block;
+  margin-top: 14px;
+  font-family: "ivypresto-headline", serif;
+  font-size: clamp(56px, 9vw, 150px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.cv-next-arrow {
+  display: inline-block;
+  font-size: 0.45em;
+  vertical-align: middle;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cv-next:hover .cv-next-arrow {
+  transform: translateX(0.4em);
+}
+
+/* ===========================
    Mobile (phones and small tablets)
    =========================== */
 @media (max-width: 768px) {
@@ -1131,5 +1375,58 @@ section {
 
   .case-next-title {
     font-size: 13vw;
+  }
+
+  /* ---------- Cover project pages ---------- */
+  /* See-through over the cover, white once you scroll past it */
+  .cover-page .navbar {
+    transition: background-color 0.3s ease;
+  }
+
+  .cover-page .navbar.on-cover {
+    background-color: transparent;
+  }
+
+  .cv-cover {
+    padding: 0 var(--gutter) 32px;
+  }
+
+  .cv-title,
+  .cv-next-title {
+    font-size: 10vw;
+  }
+
+  .cv-facts {
+    gap: 14px 28px;
+  }
+
+  .cv-facts dd {
+    font-size: 16px;
+  }
+
+  .cv-text {
+    margin: 64px auto;
+  }
+
+  .cv-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 0 var(--gutter);
+  }
+
+  .cv-g-large,
+  .cv-g-wide {
+    grid-column: span 2;
+  }
+
+  .cv-g-side,
+  .cv-g-third {
+    grid-column: span 1;
+    aspect-ratio: 3 / 4;
+  }
+
+  .cv-next {
+    margin-top: 64px;
+    padding: 48px var(--gutter) 64px;
   }
 }
