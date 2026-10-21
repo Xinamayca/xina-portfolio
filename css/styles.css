@@ -936,6 +936,45 @@ section {
   color: #333;
 }
 
+.cv-section p + p,
+.cv-section ul + p {
+  margin-top: 14px;
+}
+
+/* Bullet list inside a section, with short dashes */
+.cv-section ul {
+  margin-top: 12px;
+  list-style: none;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.cv-section li::before {
+  content: "– ";
+  color: #9a9a9a;
+}
+
+/* "My role" line under the intro */
+.cv-role {
+  margin-top: 28px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.cv-role .cv-label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Link in the cover facts (live site) */
+.cv-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* <section> is full-screen height on the home page; not here */
 .cover-page section.cv-section {
   height: auto;
