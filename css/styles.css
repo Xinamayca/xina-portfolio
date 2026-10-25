@@ -817,6 +817,7 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: var(--cover-x, 50%) 50%;
 }
 
 /* Dark fades at the bottom (title) and top (navbar) so text stays readable on any image */
