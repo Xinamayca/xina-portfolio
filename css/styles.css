@@ -313,7 +313,8 @@ section {
 /* LEFT: Text */
 .about-me {
   flex: 1;
-  margin-left: -90px;
+  /* Pull 90px towards the edge on wide screens, less on narrow ones so the text never gets cut off */
+  margin-left: calc(-1 * min(90px, max(40px, (100vw - 1200px) / 2)));
 }
 
 .about-me h1 {
@@ -364,7 +365,7 @@ section {
 .pic-mayca img {
   width: 70%;
   transform: rotate(-3deg);
-  margin-right: -90px; /* 👈 Adjust this value as needed */
+  margin-right: calc(-1 * min(90px, max(40px, (100vw - 1200px) / 2))); /* same edge pull as the text */
 }
 
 .linked-logo img {
