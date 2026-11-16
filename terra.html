@@ -29,20 +29,22 @@
   <header class="cv-cover">
     <div class="cv-cover-media">
       <!-- --cover-x: which part of the image stays visible when the cover is cropped (on phones) -->
-      <img src="assets/projects/terra/cover.jpg" alt="Terra staff dashboard on a laptop, with a map of the Humber Arboretum" style="--cover-x: 70%" />
+      <img src="assets/projects/terra/cover.jpg" alt="Terra staff dashboard on a laptop, with a map of the Humber Arboretum" style="--cover-x: 70%; --cover-shift: 14%" />
     </div>
 
     <div class="cv-cover-content">
       <p class="cv-kicker">Project 01 · Global Acting in IT minor</p>
       <h1 class="cv-title">Terra</h1>
       <dl class="cv-facts">
-        <!-- PLACEHOLDER: role -->
-        <div><dt class="cv-label">Role</dt><dd class="cv-todo">To be added</dd></div>
+        <div><dt class="cv-label">Role</dt><dd>UX/UI Designer &amp; Front-end Developer</dd></div>
         <div><dt class="cv-label">Timeline</dt><dd>Feb – Jun 2026</dd></div>
         <div><dt class="cv-label">Client</dt><dd>Humber Arboretum</dd></div>
         <div><dt class="cv-label">Deliverables</dt><dd>Field app, staff dashboard</dd></div>
-        <!-- PLACEHOLDER: tools -->
-        <div><dt class="cv-label">Tools</dt><dd class="cv-todo">To be added</dd></div>
+        <!-- Full stack (team): Next.js, TypeScript, Supabase (database, auth, photo storage, real-time),
+             Leaflet.js + OpenStreetMap, Docker, Claude Code; design: Figma, HTML prototypes,
+             Material Design icons, Georgia / DM Sans / DM Mono; process: Jira, Scrum, GitHub -->
+        <div><dt class="cv-label">Tools</dt><dd>Figma, Next.js, TypeScript, Jira</dd></div>
+        <div><dt class="cv-label">Live dashboard</dt><dd><a class="cv-link" href="https://www.terra-dashboard.com/login" target="_blank" rel="noopener">terra-dashboard.com ↗</a></dd></div>
       </dl>
     </div>
   </header>
@@ -53,40 +55,130 @@
     </p>
   </div>
 
-  <!-- PLACEHOLDER: replace each media-placeholder with an image from assets/projects/terra/ -->
-  <div class="cv-gallery">
-    <figure class="cv-g-large"><div class="media-placeholder">Image coming soon</div></figure>
-    <figure class="cv-g-side"><div class="media-placeholder">Image coming soon</div></figure>
-    <figure class="cv-g-third"><div class="media-placeholder">Image coming soon</div></figure>
-    <figure class="cv-g-third"><div class="media-placeholder">Image coming soon</div></figure>
-    <figure class="cv-g-third"><div class="media-placeholder">Image coming soon</div></figure>
-  </div>
-
   <div class="cv-text">
     <section class="cv-section">
       <p class="cv-label">01</p>
-      <h2>Challenge</h2>
-      <!-- PLACEHOLDER: challenge text -->
-      <p class="cv-todo">Text coming soon.</p>
+      <h2>Four countries, one product</h2>
+      <p>
+        This project ran across four countries in a single semester, and each stop focused on a different subject.
+        We started in Eindhoven with Human Centered Design, moved to Vienna for Software Engineering, then to
+        Chania in Greece for IoT, and finished in Toronto with AI.
+      </p>
+      <p>
+        Our team came from five different countries, and we had to carry one product through all of it. Each
+        module had its own teachers, expectations and skills, so we had to keep the project coherent while the
+        focus kept changing.
+      </p>
+      <ol class="cv-route">
+        <li><span class="cv-label">Eindhoven</span>Human Centered Design</li>
+        <li><span class="cv-label">Vienna</span>Software Engineering</li>
+        <li><span class="cv-label">Chania</span>IoT</li>
+        <li><span class="cv-label">Toronto</span>AI</li>
+      </ol>
     </section>
 
     <section class="cv-section">
       <p class="cv-label">02</p>
-      <h2>Process</h2>
-      <!-- PLACEHOLDER: process text -->
-      <p class="cv-todo">Text coming soon.</p>
+      <h2>The problem</h2>
+      <p>
+        The Humber Office of Sustainability had no central way to track the landscape of the Arboretum,
+        while Humber College has committed to net zero by 2029. Visitors, meanwhile, had little visibility
+        into the trees and ecology around them.
+      </p>
     </section>
 
     <section class="cv-section">
       <p class="cv-label">03</p>
-      <h2>Result</h2>
-      <!-- PLACEHOLDER: result text -->
-      <p class="cv-todo">Text coming soon.</p>
+      <h2>The solution</h2>
+      <p>
+        Terra is a mobile field app paired with a staff dashboard. Visitors log in, explore the arboretum map,
+        view tree information and submit photo observations. Staff review those observations on a map alongside
+        the existing landscape inventory and approve them into the permanent record. Each module added a layer:
+      </p>
+      <ul class="cv-list-rich">
+        <li><strong>Eindhoven (HCD):</strong> research, personas, the brand, and prototypes tested with users</li>
+        <li><strong>Vienna (Software Engineering):</strong> the MVP definition, sprint plan, and the working app</li>
+        <li><strong>Chania (IoT):</strong> sensors for temperature, light and soil moisture, plus a dashboard design to read them</li>
+        <li><strong>Toronto (AI):</strong> photo-based species identification, tree health scoring and anomaly detection, built by my teammates</li>
+      </ul>
     </section>
   </div>
 
+  <!-- Staff dashboard, then the field app screens (phone screenshots, about 430 x 932 px).
+       To fill a spot: save the image in assets/projects/terra/ and replace the placeholder figure with
+       <figure class="cv-g-phone"><img src="assets/projects/terra/FILE.png" alt="..." /></figure> -->
   <div class="cv-gallery">
-    <figure class="cv-g-wide"><div class="media-placeholder">Image coming soon</div></figure>
+    <figure class="cv-g-wide cv-natural"><img src="assets/projects/terra/staff-dashboard.jpg" alt="Terra staff dashboard: map of the Humber Arboretum with observations and the review queue" /></figure>
+  </div>
+  <div class="cv-gallery cv-gallery-narrow">
+    <figure class="cv-g-phone"><img src="assets/projects/terra/app-login.png" alt="Terra field app: login screen" /></figure>
+    <figure class="cv-g-phone"><div class="media-placeholder">Field app:<br>map screen</div></figure>
+    <figure class="cv-g-phone"><div class="media-placeholder">Field app:<br>tree detail screen</div></figure>
+  </div>
+
+  <div class="cv-text">
+    <section class="cv-section">
+      <p class="cv-label">04</p>
+      <h2>My role</h2>
+      <ul class="cv-list-rich">
+        <li>
+          <strong>Brand and design system.</strong> I named the platform Terra, which means <em>ground</em> in
+          Papiamentu, my native language, and also <em>earth</em> in Latin. I designed the logo, colour palette,
+          type pairing, map pins and style guide. I made it a separate brand on purpose, so the Office of
+          Sustainability can extend it to other green spaces later.
+        </li>
+        <li>
+          <strong>UX and UI design.</strong> I designed the field app screens (login, map, tree detail, camera,
+          add entry) and the staff dashboard. I tested them with landscaping students and fixed readability
+          issues with fonts and colours.
+        </li>
+        <li>
+          <strong>Front-end development.</strong> I built the interface in Next.js and TypeScript, working with Claude Code.
+        </li>
+        <li>
+          <strong>Research and documentation.</strong> I wrote the research plan, merged the team’s findings into
+          one document that defined the core user need, and produced the MVP definition, sprint plan and usability test plan.
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Brand and UX: design guide next to a usability testing photo (or a before/after of the readability fix) -->
+  <div class="cv-gallery cv-gallery-narrow">
+    <figure class="cv-g-half cv-natural"><img src="assets/projects/terra/design-guide.png" alt="Terra design guide: logo, colours, typography, buttons and map pins" /></figure>
+    <figure class="cv-g-half"><div class="media-placeholder">Usability testing photo<br>or before / after of the readability fix</div></figure>
+  </div>
+
+  <div class="cv-text">
+
+    <section class="cv-section">
+      <p class="cv-label">05</p>
+      <h2>Tech stack</h2>
+      <p>Next.js, TypeScript, Supabase, Leaflet with OpenStreetMap, Docker, Figma</p>
+    </section>
+
+    <section class="cv-section">
+      <p class="cv-label">06</p>
+      <h2>Outcome</h2>
+      <p>
+        We presented a working platform to the stakeholders. It is built to be reused for any green space,
+        not only the Arboretum.
+      </p>
+    </section>
+
+    <section class="cv-section">
+      <p class="cv-label">07</p>
+      <h2>What I learned</h2>
+      <p>
+        I came in with a design background and learned how designs become working software. I also learned
+        to speak up more in a team instead of letting documentation stand in for leadership.
+      </p>
+    </section>
+  </div>
+
+  <!-- Outcome: a photo of the stakeholder presentation or the team -->
+  <div class="cv-gallery">
+    <figure class="cv-g-wide"><div class="media-placeholder">Photo of the stakeholder presentation or the team</div></figure>
   </div>
 
   <a class="cv-next" href="chromodynamics.html">

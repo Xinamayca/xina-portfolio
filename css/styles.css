@@ -821,6 +821,15 @@ section {
   object-position: var(--cover-x, 50%) 50%;
 }
 
+/* --cover-shift (desktop only): makes the cover wider than the screen so the extra falls off
+   the right edge, which moves the image content to the right */
+@media (min-width: 769px) {
+  .cv-cover-media img {
+    width: calc(100% + var(--cover-shift, 0%));
+    max-width: none;
+  }
+}
+
 /* Dark fades at the bottom (title) and top (navbar) so text stays readable on any image */
 .cv-cover-media::after {
   content: "";
@@ -957,6 +966,68 @@ section {
   color: #9a9a9a;
 }
 
+/* List of longer items with a bold lead-in (e.g. "My role") */
+.cv-section .cv-list-rich li + li {
+  margin-top: 14px;
+}
+
+.cv-section .cv-list-rich li::before {
+  content: none;
+}
+
+.cv-list-rich strong {
+  color: #000;
+}
+
+/* Route of stops (e.g. the Terra minor): four steps in a row with a line between them */
+.cv-route {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e4e4e4;
+  list-style: none;
+  counter-reset: stop;
+}
+
+.cv-route li {
+  font-family: "helvetica-neue-lt-pro-cond", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.cv-section .cv-route li::before {
+  counter-increment: stop;
+  content: "0" counter(stop) " →";
+  display: block;
+  margin-bottom: 6px;
+  font-family: 'helvetica';
+  font-weight: normal;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: #9a9a9a;
+}
+
+.cv-route li:last-child::before {
+  content: "0" counter(stop);
+}
+
+.cv-route .cv-label {
+  display: block;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 768px) {
+  .cv-route {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 18px;
+  }
+}
+
 /* "My role" line under the intro */
 .cv-role {
   margin-top: 28px;
@@ -1022,6 +1093,21 @@ section {
 /* Show an image at its own proportions instead of cropping it */
 .cv-gallery .cv-natural { aspect-ratio: auto; }
 
+/* Half-width image (e.g. design guide next to a photo) */
+.cv-g-half { grid-column: span 3; aspect-ratio: 4 / 5; }
+
+/* Phone screenshots: three in a row, shown whole on a soft background */
+.cv-gallery .cv-g-phone {
+  grid-column: span 2;
+  aspect-ratio: 430 / 932;
+  padding: 0;
+  background: #f1f1f1;
+}
+
+.cv-gallery .cv-g-phone img {
+  object-fit: contain;
+}
+
 /* Big black "next project" block */
 .cv-next {
   display: block;
@@ -1056,6 +1142,110 @@ section {
 
 .cv-next:hover .cv-next-arrow {
   transform: translateX(0.4em);
+}
+
+/* ---------- Compact case study body ----------
+   Overrides the sizes above: smaller type, two-column sections
+   (number + heading on the left, text on the right), narrower images, less spacing.
+   Delete this block to go back to the larger version. */
+.cv-text {
+  max-width: 1100px;
+  margin: 64px auto;
+  padding: 0 55px;
+}
+
+.cv-intro {
+  max-width: 720px;
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 1.5;
+}
+
+.cv-section {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 2fr;
+  grid-auto-flow: dense;
+  column-gap: 48px;
+  row-gap: 0;
+  padding-top: 18px;
+  border-top: 1px solid #e4e4e4;
+}
+
+.cv-section + .cv-section {
+  margin-top: 40px;
+}
+
+.cv-section > * {
+  grid-column: 2;
+}
+
+/* Number and heading share the first row of the left column, heading just below the number */
+.cv-section > .cv-label {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+}
+
+.cv-section > h2 {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  margin: 22px 0 0;
+  font-size: 18px;
+  line-height: 1.15;
+}
+
+.cv-section p,
+.cv-section ul,
+.cv-role {
+  max-width: 640px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.cv-section p + p,
+.cv-section ul + p,
+.cv-section .cv-list-rich li + li {
+  margin-top: 12px;
+}
+
+.cv-section ul {
+  margin-top: 10px;
+}
+
+.cv-route {
+  margin-top: 20px;
+}
+
+.cv-route li {
+  font-size: 15px;
+}
+
+.cv-role {
+  margin-top: 20px;
+}
+
+.cv-gallery {
+  max-width: 1310px; /* 1200px of images + side padding */
+  margin: 0 auto;
+  gap: 12px;
+}
+
+/* Narrower gallery for tall images (phone screens, design guide) */
+.cv-gallery.cv-gallery-narrow {
+  max-width: 1010px;
+}
+
+.cv-gallery + .cv-gallery {
+  margin-top: 12px;
+}
+
+.cv-next {
+  margin-top: 80px;
+  padding: 48px 55px 56px;
+}
+
+.cv-next-title {
+  font-size: clamp(40px, 5vw, 80px);
 }
 
 /* ===========================
@@ -1419,6 +1609,18 @@ section {
   }
 
   /* ---------- Cover project pages ---------- */
+  .cv-section {
+    display: block;
+  }
+
+  .cv-section > h2 {
+    margin: 4px 0 10px;
+  }
+
+  .cv-text {
+    padding: 0 var(--gutter);
+  }
+
   /* See-through over the cover, white once you scroll past it */
   .cover-page .navbar {
     transition: background-color 0.3s ease;
@@ -1464,6 +1666,14 @@ section {
   .cv-g-third {
     grid-column: span 1;
     aspect-ratio: 3 / 4;
+  }
+
+  .cv-g-half {
+    grid-column: span 2;
+  }
+
+  .cv-gallery .cv-g-phone {
+    grid-column: span 1;
   }
 
   .cv-next {
