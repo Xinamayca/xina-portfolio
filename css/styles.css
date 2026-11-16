@@ -879,6 +879,14 @@ section {
   color: #bbb;
 }
 
+/* The line above the cover title ("Project 01 · ..."): same font as the About Me text */
+.cv-cover .cv-kicker {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.06em;
+  color: #e6e6e6;
+}
+
 .cv-title {
   margin-top: 10px;
   font-family: "ivypresto-headline", serif;
@@ -1235,6 +1243,64 @@ section {
   max-width: 1010px;
 }
 
+/* A single image centred at half width (e.g. a tall design guide) */
+.cv-gallery .cv-center-half {
+  justify-self: center;
+  width: 50%;
+}
+
+/* Team section: logo and a short line on the left, team photo on the right */
+.cv-section.cv-team > .cv-team-info {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.cv-team-info h2 {
+  margin: 4px 0 16px;
+  font-size: 18px;
+}
+
+.cv-team-logo {
+  display: block;
+  width: 180px;
+  margin: 0 0 12px -16px; /* the logo image has white space around it */
+}
+
+.cv-section .cv-team-info p:not(.cv-label) {
+  max-width: 240px;
+}
+
+.cv-section.cv-team > .cv-team-photo {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+}
+
+.cv-team-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Small caption under a gallery image */
+.cv-gallery figcaption {
+  padding-top: 10px;
+  background: #fff;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+
+.cv-gallery figure:has(figcaption) {
+  background: none;
+  overflow: visible;
+}
+
+.cv-gallery figure:has(figcaption) img {
+  height: auto;
+}
+
 .cv-gallery + .cv-gallery {
   margin-top: 12px;
 }
@@ -1246,6 +1312,357 @@ section {
 
 .cv-next-title {
   font-size: clamp(40px, 5vw, 80px);
+}
+
+/* ===========================
+   Case study body (editorial + index): big serif statement and key numbers on top,
+   then a sticky index on the left and editorial sections on the right.
+   --accent is the project colour (Terra forest green by default); set it on <body> per project.
+   =========================== */
+.cover-page {
+  --accent: #2e4a2a;
+  --highlight: #3f6b39; /* brighter Terra forest: the highlighted words in the statement */
+}
+
+.ed-serif {
+  font-family: "ivypresto-headline", serif;
+  font-weight: 400;
+}
+
+/* Statement + numbers */
+.ed-top {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 96px 55px 0;
+  font-family: 'helvetica';
+}
+
+.ed-statement {
+  max-width: 980px;
+  margin-top: 16px;
+  font-size: clamp(30px, 3.4vw, 50px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.ed-statement em {
+  font-style: italic;
+  color: var(--highlight);
+}
+
+/* Pages with a gradient brand (Chromodynamics, REIA): the highlighted words use the gradient */
+.hl-gradient .ed-statement em {
+  background-image: var(--highlight-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 0.08em; /* keeps the italic last letter from being clipped */
+}
+
+.ed-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 56px;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.ed-stats div {
+  padding: 22px 0;
+}
+
+.ed-stats.ed-stats-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ed-stats div + div {
+  padding-left: 24px;
+  border-left: 1px solid #e4e4e4;
+}
+
+.ed-stats b {
+  display: block;
+  font-size: 56px;
+  line-height: 1;
+}
+
+.ed-stats span {
+  display: block;
+  margin-top: 8px;
+}
+
+/* Layout: sticky index + content */
+.cs-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 72px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 72px 55px 40px;
+  font-family: 'helvetica';
+}
+
+.cs-index {
+  position: sticky;
+  top: 96px;
+  align-self: start;
+}
+
+.cs-index ol {
+  list-style: none;
+  border-top: 1px solid #e4e4e4;
+}
+
+.cs-index a {
+  display: flex;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e4e4e4;
+  font-size: 14px;
+  color: #999;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cs-index a span {
+  padding-top: 2px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+.cs-index a:hover,
+.cs-index a.active {
+  color: #111;
+}
+
+.cs-index a.active span {
+  color: var(--accent);
+}
+
+.cs-content {
+  min-width: 0;
+}
+
+/* Sections */
+.cover-page section.cs-section {
+  height: auto;
+  font-size: inherit;
+}
+
+.cs-section {
+  scroll-margin-top: 96px;
+  padding-bottom: 72px;
+}
+
+/* Section labels ("01 — Context"): same font as the About Me text (Arial), bigger than the other labels */
+.cs-section .cv-label {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.06em;
+  color: #111;
+}
+
+.cs-section .cv-label + h2 {
+  margin-top: 4px;
+}
+
+.cs-section h2 {
+  margin: 8px 0 20px;
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.05;
+}
+
+.ed-text p:not(.cv-label) {
+  max-width: 720px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.ed-text p:not(.cv-label) + p {
+  margin-top: 12px;
+}
+
+.ed-text strong {
+  color: #111;
+}
+
+/* Two newspaper columns for longer text */
+.ed-cols {
+  columns: 2;
+  column-gap: 40px;
+}
+
+.ed-cols p {
+  max-width: none;
+  break-inside: avoid;
+}
+
+/* Rows: bold title on the left, text on the right, thin rules between */
+.ed-rows {
+  margin-top: 24px;
+  border-top: 1px solid #e4e4e4;
+}
+
+.ed-rows > div {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e4e4e4;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #333;
+}
+
+.ed-rows b {
+  color: #111;
+}
+
+/* Images: square, with small captions */
+.ed-media {
+  margin: 32px 0 0;
+}
+
+.ed-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ed-media figcaption {
+  margin-top: 10px;
+}
+
+.ed-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-top: 32px;
+}
+
+.ed-pair .ed-media {
+  margin: 0;
+}
+
+/* A logo or icon shown on its own, centred in a light box */
+.ed-logo-box {
+  display: flex;
+  justify-content: center;
+  padding: 56px 0;
+  background: #f6f6f4;
+}
+
+.ed-media.ed-logo-box img {
+  width: 220px;
+}
+
+.ed-guide img {
+  border: 1px solid #e4e4e4;
+}
+
+.cs-phones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 280px)); /* one to three screens, centred */
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.cs-phones figure {
+  margin: 0;
+  aspect-ratio: 430 / 932;
+  overflow: hidden;
+  background: #f1f1f1;
+}
+
+.cs-phones img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cs-phones .media-placeholder {
+  height: 100%;
+  border: none;
+  aspect-ratio: auto;
+  text-align: center;
+}
+
+/* "Try it yourself" block with the demo login */
+.ed-try {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px 32px;
+  margin-top: 24px;
+  padding: 18px 22px;
+  border-left: 3px solid var(--accent);
+  background: #f6f6f4;
+}
+
+.ed-text p.ed-try-title {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #111;
+}
+
+.ed-try-link {
+  font-size: 15px;
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+.ed-try dl {
+  display: flex;
+  gap: 24px;
+}
+
+.ed-try dt {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.ed-try dd {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  color: #111;
+  user-select: all; /* one click selects the whole value */
+}
+
+/* Pull quote */
+.ed-quote {
+  padding: 0;
+}
+
+.ed-quote p.ed-serif {
+  font-size: clamp(24px, 2.4vw, 36px);
+  line-height: 1.22;
+  max-width: 820px;
+}
+
+.cs-section > .cv-label + .ed-quote {
+  margin-top: 16px;
+}
+
+/* Team */
+.ed-team {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.ed-team-logo {
+  display: block;
+  width: 170px;
+  margin: 8px 0 8px -14px;
 }
 
 /* ===========================
@@ -1609,6 +2026,71 @@ section {
   }
 
   /* ---------- Cover project pages ---------- */
+  .ed-top {
+    padding: 64px var(--gutter) 0;
+  }
+
+  .ed-stats {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 36px;
+  }
+
+  .ed-stats div:nth-child(3) {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .ed-stats.ed-stats-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .ed-stats.ed-stats-3 div {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .ed-stats.ed-stats-3 div + div {
+    border-top: 1px solid #e4e4e4;
+  }
+
+  .ed-stats b {
+    font-size: 40px;
+  }
+
+  .cs-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 48px var(--gutter) 24px;
+  }
+
+  .cs-index {
+    display: none;
+  }
+
+  .cs-section {
+    padding-bottom: 56px;
+  }
+
+  .ed-cols {
+    columns: 1;
+  }
+
+  .ed-rows > div,
+  .ed-pair,
+  .ed-team {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .ed-pair,
+  .ed-team {
+    gap: 16px;
+  }
+
+  .cs-phones {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .cv-section {
     display: block;
   }
@@ -1676,8 +2158,130 @@ section {
     grid-column: span 1;
   }
 
+  .cv-gallery .cv-center-half {
+    width: 100%;
+  }
+
+  .cv-team-logo {
+    width: 150px;
+  }
+
+  .cv-section.cv-team > .cv-team-photo {
+    margin-top: 20px;
+  }
+
   .cv-next {
     margin-top: 64px;
     padding: 48px var(--gutter) 64px;
+  }
+}
+
+/* ===========================
+   Lightbox (js/lightbox.js): click a project image to see it large
+   =========================== */
+.lightbox-trigger {
+  cursor: zoom-in;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox-trigger:hover {
+  opacity: 0.88;
+}
+
+.lightbox-trigger:focus-visible {
+  outline: 2px solid var(--accent, #000);
+  outline-offset: 4px;
+}
+
+html.lightbox-open {
+  overflow: hidden; /* no page scrolling behind the open image */
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 56px 16px 24px;
+  background: rgba(10, 10, 10, 0.92);
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: min(1400px, 100%);
+  height: 100%;
+  margin: 0;
+  cursor: zoom-out;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: calc(100% - 40px);
+  object-fit: contain;
+  cursor: default;
+}
+
+.lightbox-caption {
+  margin-top: 14px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: #ccc;
+}
+
+.lightbox button {
+  flex: none;
+  border: none;
+  background: none;
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox button:hover,
+.lightbox button:focus-visible {
+  opacity: 1;
+}
+
+.lightbox button[hidden] {
+  display: none;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-size: 24px !important;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  padding: 16px;
+}
+
+@media (max-width: 768px) {
+  .lightbox {
+    padding: 56px 4px 16px;
+    gap: 0;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    padding: 8px;
+    font-size: 22px !important;
   }
 }

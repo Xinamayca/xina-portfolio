@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="assets/icons/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="assets/icons/favicon/site.webmanifest" />
 </head>
-<body class="cover-page">
+<body class="cover-page hl-gradient" style="--accent: #c8162a; --highlight-gradient: linear-gradient(90deg, #e8101e, #f07a2a);">
 
     <nav class="navbar">
         <ul>
@@ -44,54 +44,109 @@
     </div>
   </header>
 
-  <div class="cv-text">
-    <p class="cv-intro">
-      I researched and redesigned the brand of <strong>Chromodynamics</strong>, a microscopy company in Eindhoven, creating the <strong>logo</strong>, <strong>brand guide</strong>, <strong>website prototype</strong> and <strong>app UI redesigns</strong>.
-    </p>
+  <!-- Case study body: statement and key numbers, then a sticky index (js/case-index.js) next to editorial sections -->
+  <div class="ed-top">
+    <p class="cv-label">Chromodynamics · 18-week internship</p>
+    <p class="ed-statement ed-serif">I researched and redesigned the brand of <em>Chromodynamics</em>, a microscopy company in Eindhoven, from the logo to the website and app.</p>
+
+    <div class="ed-stats ed-stats-3">
+      <div><b class="ed-serif">18</b><span class="cv-label">Weeks</span></div>
+      <div><b class="ed-serif">4</b><span class="cv-label">Deliverables</span></div>
+      <div><b class="ed-serif">1</b><span class="cv-label">New brand</span></div>
+    </div>
   </div>
 
-  <!-- PLACEHOLDER: replace each media-placeholder with an image from assets/projects/chromodynamics/ -->
-  <div class="cv-gallery">
-    <figure class="cv-g-large cv-natural"><img src="assets/projects/chromodynamics/slide-runner-home.png" alt="Slide Runner app home screen with login and scanning status" /></figure>
-    <figure class="cv-g-side"><div class="media-placeholder">Image coming soon</div></figure>
-    <figure class="cv-g-third"><div class="media-placeholder">Image coming soon</div></figure>
-    <figure class="cv-g-third"><div class="media-placeholder">Image coming soon</div></figure>
-    <figure class="cv-g-third"><div class="media-placeholder">Image coming soon</div></figure>
-  </div>
+  <div class="cs-layout">
 
-  <div class="cv-text">
-    <section class="cv-section">
-      <p class="cv-label">01</p>
-      <h2>Challenge</h2>
-      <!-- PLACEHOLDER: challenge text -->
-      <p class="cv-todo">Text coming soon.</p>
-    </section>
+    <aside class="cs-index">
+      <ol>
+        <li><a href="#project"><span>01</span>The project</a></li>
+        <li><a href="#identity"><span>02</span>The new identity</a></li>
+        <li><a href="#website"><span>03</span>Website prototype</a></li>
+        <li><a href="#app"><span>04</span>App UI redesign</a></li>
+        <li><a href="#team"><span>05</span>The team</a></li>
+      </ol>
+    </aside>
 
-    <section class="cv-section">
-      <p class="cv-label">02</p>
-      <h2>Process</h2>
-      <!-- PLACEHOLDER: process text -->
-      <p class="cv-todo">Text coming soon.</p>
-    </section>
+    <main class="cs-content">
 
-    <section class="cv-section">
-      <p class="cv-label">03</p>
-      <h2>Result</h2>
-      <!-- PLACEHOLDER: result text -->
-      <p class="cv-todo">Text coming soon.</p>
-    </section>
-  </div>
+      <section class="cs-section ed-text" id="project">
+        <p class="cv-label">01 — The project</p>
+        <h2 class="ed-serif">Rebranding a microscopy company</h2>
+        <p>
+          During my 18-week internship I researched and redesigned the brand of <strong>Chromodynamics</strong>,
+          a microscopy company in Eindhoven, creating the logo, brand guide, website prototype and app UI redesigns.
+        </p>
+        <div class="ed-rows">
+          <div><b>Logo</b><span>A new mark and logotype for the company</span></div>
+          <div><b>Brand guide</b><span>The rules for using the new identity consistently</span></div>
+          <div><b>Website prototype</b><span>A redesigned website in the new brand</span></div>
+          <div><b>App UI redesigns</b><span>The Slide Runner app, redesigned in the new brand</span></div>
+        </div>
+        <!-- PLACEHOLDER (hidden until written): the challenge, research and process, as extra sections:
+             <section class="cs-section ed-text" id="challenge"> <p class="cv-label">0X — The challenge</p> ... </section>
+             Add a matching <li> to the index above. -->
+      </section>
 
-  <div class="cv-gallery">
-    <figure class="cv-g-wide"><div class="media-placeholder">Image coming soon</div></figure>
+      <section class="cs-section ed-text" id="identity">
+        <p class="cv-label">02 — The new identity</p>
+        <h2 class="ed-serif">A mark built from segments</h2>
+        <figure class="ed-media ed-logo-box">
+          <img src="assets/projects/chromodynamics/icon/chromo-icon-512.png" alt="The new Chromodynamics icon: a C made of orange-red segments" />
+        </figure>
+        <!-- PLACEHOLDER (hidden until available): the meaning behind the mark, plus brand guide spreads -->
+      </section>
+
+      <section class="cs-section ed-text" id="website">
+        <p class="cv-label">03 — Website prototype</p>
+        <h2 class="ed-serif">Making visible what matters most</h2>
+        <figure class="ed-media">
+          <img src="assets/projects/chromodynamics/Landing-page-webie.png" alt="Chromodynamics website prototype: landing page with the headline Making visible what matters most" />
+          <figcaption class="cv-label">Website prototype: landing page</figcaption>
+        </figure>
+      </section>
+
+      <section class="cs-section ed-text" id="app">
+        <p class="cv-label">04 — App UI redesign</p>
+        <h2 class="ed-serif">Slide Runner, in the new brand</h2>
+        <figure class="ed-media">
+          <img src="assets/projects/chromodynamics/slide-runner-home.png" alt="Slide Runner app home screen with login and scanning status" />
+          <figcaption class="cv-label">Slide Runner app: home screen</figcaption>
+        </figure>
+        <!-- PLACEHOLDER (hidden until available): a before / after of the old app, and the result and reflection -->
+      </section>
+
+      <section class="cs-section ed-text" id="team">
+        <p class="cv-label">05 — The team</p>
+        <h2 class="ed-serif">18 weeks at Chromodynamics</h2>
+        <p>The colleagues I worked with during my internship in Eindhoven.</p>
+        <figure class="ed-media">
+          <img src="assets/projects/chromodynamics/team-group.jpg" alt="The Chromodynamics team together outside the office in Eindhoven" />
+          <figcaption class="cv-label">The Chromodynamics team in Eindhoven</figcaption>
+        </figure>
+        <div class="ed-pair">
+          <figure class="ed-media">
+            <img src="assets/projects/chromodynamics/team-desk.jpg" alt="Me at my desk in the Chromodynamics office, with an Elmo plush on the desk" />
+            <figcaption class="cv-label">At my desk (with Elmo)</figcaption>
+          </figure>
+          <figure class="ed-media">
+            <img src="assets/projects/chromodynamics/team-walk.jpg" alt="Colleagues striking playful poses while walking out of the office" />
+            <figcaption class="cv-label">Leaving the office, in style</figcaption>
+          </figure>
+        </div>
+      </section>
+
+    </main>
   </div>
 
   <a class="cv-next" href="reia.html">
     <span class="cv-label">Next project</span>
-    <span class="cv-next-title">REIA <span class="cv-next-arrow">→</span></span>
+    <span class="cv-next-title">REIA Motors <span class="cv-next-arrow">→</span></span>
   </a>
 
   <script src="js/cover-page.js"></script>
+  <script src="js/case-index.js"></script>
+  <script src="js/lightbox.js"></script>
 
 </body>
 </html>

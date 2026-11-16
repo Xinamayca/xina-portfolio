@@ -49,136 +49,148 @@
     </div>
   </header>
 
-  <div class="cv-text">
-    <p class="cv-intro">
-      A field app and staff dashboard for the <strong>Humber Arboretum</strong>, made as part of my <strong>Global Acting in IT</strong> minor.
-    </p>
+  <!-- Case study body: statement and key numbers, then a sticky index (js/case-index.js) next to editorial sections -->
+  <div class="ed-top">
+    <p class="cv-label">Terra · Global Acting in IT minor</p>
+    <p class="ed-statement ed-serif">A field app and staff dashboard that helps the <em>Humber Arboretum</em> track its landscape, built by one team across four countries.</p>
+
+    <div class="ed-stats">
+      <div><b class="ed-serif">4</b><span class="cv-label">Countries</span></div>
+      <div><b class="ed-serif">5</b><span class="cv-label">Nationalities</span></div>
+      <div><b class="ed-serif">2</b><span class="cv-label">Products</span></div>
+      <div><b class="ed-serif">1</b><span class="cv-label">Semester</span></div>
+    </div>
   </div>
 
-  <div class="cv-text">
-    <section class="cv-section">
-      <p class="cv-label">01</p>
-      <h2>Four countries, one product</h2>
-      <p>
-        This project ran across four countries in a single semester, and each stop focused on a different subject.
-        We started in Eindhoven with Human Centered Design, moved to Vienna for Software Engineering, then to
-        Chania in Greece for IoT, and finished in Toronto with AI.
-      </p>
-      <p>
-        Our team came from five different countries, and we had to carry one product through all of it. Each
-        module had its own teachers, expectations and skills, so we had to keep the project coherent while the
-        focus kept changing.
-      </p>
-      <ol class="cv-route">
-        <li><span class="cv-label">Eindhoven</span>Human Centered Design</li>
-        <li><span class="cv-label">Vienna</span>Software Engineering</li>
-        <li><span class="cv-label">Chania</span>IoT</li>
-        <li><span class="cv-label">Toronto</span>AI</li>
+  <div class="cs-layout">
+
+    <aside class="cs-index">
+      <ol>
+        <li><a href="#context"><span>01</span>Four countries</a></li>
+        <li><a href="#problem"><span>02</span>The problem</a></li>
+        <li><a href="#solution"><span>03</span>The solution</a></li>
+        <li><a href="#role"><span>04</span>My role</a></li>
+        <li><a href="#outcome"><span>05</span>Outcome</a></li>
+        <li><a href="#learned"><span>06</span>What I learned</a></li>
+        <li><a href="#team"><span>07</span>The team</a></li>
       </ol>
-    </section>
+    </aside>
 
-    <section class="cv-section">
-      <p class="cv-label">02</p>
-      <h2>The problem</h2>
-      <p>
-        The Humber Office of Sustainability had no central way to track the landscape of the Arboretum,
-        while Humber College has committed to net zero by 2029. Visitors, meanwhile, had little visibility
-        into the trees and ecology around them.
-      </p>
-    </section>
+    <main class="cs-content">
 
-    <section class="cv-section">
-      <p class="cv-label">03</p>
-      <h2>The solution</h2>
-      <p>
-        Terra is a mobile field app paired with a staff dashboard. Visitors log in, explore the arboretum map,
-        view tree information and submit photo observations. Staff review those observations on a map alongside
-        the existing landscape inventory and approve them into the permanent record. Each module added a layer:
-      </p>
-      <ul class="cv-list-rich">
-        <li><strong>Eindhoven (HCD):</strong> research, personas, the brand, and prototypes tested with users</li>
-        <li><strong>Vienna (Software Engineering):</strong> the MVP definition, sprint plan, and the working app</li>
-        <li><strong>Chania (IoT):</strong> sensors for temperature, light and soil moisture, plus a dashboard design to read them</li>
-        <li><strong>Toronto (AI):</strong> photo-based species identification, tree health scoring and anomaly detection, built by my teammates</li>
-      </ul>
-    </section>
-  </div>
+      <section class="cs-section ed-text" id="context">
+        <p class="cv-label">01 — Context</p>
+        <h2 class="ed-serif">Four countries, one product</h2>
+        <div class="ed-cols">
+          <p>
+            This project ran across four countries in a single semester, and each stop focused on a different subject.
+            We started in Eindhoven with Human Centered Design, moved to Vienna for Software Engineering, then to
+            Chania in Greece for IoT, and finished in Toronto with AI.
+          </p>
+          <p>
+            Our team came from five different countries, and we had to carry one product through all of it. Each
+            module had its own teachers, expectations and skills, so we had to keep the project coherent while the
+            focus kept changing.
+          </p>
+        </div>
+      </section>
 
-  <!-- Staff dashboard, then the field app screens (phone screenshots, about 430 x 932 px).
-       To fill a spot: save the image in assets/projects/terra/ and replace the placeholder figure with
-       <figure class="cv-g-phone"><img src="assets/projects/terra/FILE.png" alt="..." /></figure> -->
-  <div class="cv-gallery">
-    <figure class="cv-g-wide cv-natural"><img src="assets/projects/terra/staff-dashboard.jpg" alt="Terra staff dashboard: map of the Humber Arboretum with observations and the review queue" /></figure>
-  </div>
-  <div class="cv-gallery cv-gallery-narrow">
-    <figure class="cv-g-phone"><img src="assets/projects/terra/app-login.png" alt="Terra field app: login screen" /></figure>
-    <figure class="cv-g-phone"><div class="media-placeholder">Field app:<br>map screen</div></figure>
-    <figure class="cv-g-phone"><div class="media-placeholder">Field app:<br>tree detail screen</div></figure>
-  </div>
+      <section class="cs-section ed-text" id="problem">
+        <p class="cv-label">02 — The problem</p>
+        <h2 class="ed-serif">No central record of the landscape</h2>
+        <div class="ed-cols">
+          <p>
+            The Humber Office of Sustainability had no central way to track the landscape of the Arboretum,
+            while Humber College has committed to net zero by 2029.
+          </p>
+          <p>Visitors, meanwhile, had little visibility into the trees and ecology around them.</p>
+        </div>
+      </section>
 
-  <div class="cv-text">
-    <section class="cv-section">
-      <p class="cv-label">04</p>
-      <h2>My role</h2>
-      <ul class="cv-list-rich">
-        <li>
-          <strong>Brand and design system.</strong> I named the platform Terra, which means <em>ground</em> in
-          Papiamentu, my native language, and also <em>earth</em> in Latin. I designed the logo, colour palette,
-          type pairing, map pins and style guide. I made it a separate brand on purpose, so the Office of
-          Sustainability can extend it to other green spaces later.
-        </li>
-        <li>
-          <strong>UX and UI design.</strong> I designed the field app screens (login, map, tree detail, camera,
-          add entry) and the staff dashboard. I tested them with landscaping students and fixed readability
-          issues with fonts and colours.
-        </li>
-        <li>
-          <strong>Front-end development.</strong> I built the interface in Next.js and TypeScript, working with Claude Code.
-        </li>
-        <li>
-          <strong>Research and documentation.</strong> I wrote the research plan, merged the team’s findings into
-          one document that defined the core user need, and produced the MVP definition, sprint plan and usability test plan.
-        </li>
-      </ul>
-    </section>
-  </div>
+      <section class="cs-section ed-text" id="solution">
+        <p class="cv-label">03 — The solution</p>
+        <h2 class="ed-serif">A field app paired with a staff dashboard</h2>
+        <p>
+          Terra is a mobile field app paired with a staff dashboard. Visitors log in, explore the arboretum map,
+          view tree information and submit photo observations. Staff review those observations on a map alongside
+          the existing landscape inventory and approve them into the permanent record. Each module added a layer:
+        </p>
+        <div class="ed-rows">
+          <div><b>Eindhoven (HCD)</b><span>Research, personas, the brand, and prototypes tested with users</span></div>
+          <div><b>Vienna (Software Engineering)</b><span>The MVP definition, sprint plan, and the working app</span></div>
+          <div><b>Chania (IoT)</b><span>Sensors for temperature, light and soil moisture, plus a dashboard design to read them</span></div>
+          <div><b>Toronto (AI)</b><span>Photo-based species identification, tree health scoring and anomaly detection, built by my teammates</span></div>
+        </div>
 
-  <!-- Brand and UX: design guide next to a usability testing photo (or a before/after of the readability fix) -->
-  <div class="cv-gallery cv-gallery-narrow">
-    <figure class="cv-g-half cv-natural"><img src="assets/projects/terra/design-guide.png" alt="Terra design guide: logo, colours, typography, buttons and map pins" /></figure>
-    <figure class="cv-g-half"><div class="media-placeholder">Usability testing photo<br>or before / after of the readability fix</div></figure>
-  </div>
+        <figure class="ed-media">
+          <img src="assets/projects/terra/staff-dashboard.jpg" alt="Terra staff dashboard: map of the Humber Arboretum with observations and the review queue" />
+          <figcaption class="cv-label">Staff dashboard</figcaption>
+        </figure>
 
-  <div class="cv-text">
+        <!-- Field app screens (phone screenshots, about 430 x 932 px). To fill a spot, replace the placeholder with
+             <img src="assets/projects/terra/FILE.png" alt="..." /> -->
+        <div class="cs-phones">
+          <figure><img src="assets/projects/terra/app-login.png" alt="Terra field app: login screen" /></figure>
+          <!-- PLACEHOLDER (hidden until available): map screen and tree detail screen, e.g.
+               <figure><img src="assets/projects/terra/app-map.png" alt="Terra field app: map screen" /></figure> -->
+        </div>
+      </section>
 
-    <section class="cv-section">
-      <p class="cv-label">05</p>
-      <h2>Tech stack</h2>
-      <p>Next.js, TypeScript, Supabase, Leaflet with OpenStreetMap, Docker, Figma</p>
-    </section>
+      <section class="cs-section ed-text" id="role">
+        <p class="cv-label">04 — My role</p>
+        <h2 class="ed-serif">Brand, UX/UI and front-end</h2>
+        <div class="ed-rows">
+          <div><b>Brand and design system</b><span>I named the platform Terra, which means <em>ground</em> in Papiamentu, my native language, and also <em>earth</em> in Latin. I designed the logo, colour palette, type pairing, map pins and style guide. I made it a separate brand on purpose, so the Office of Sustainability can extend it to other green spaces later.</span></div>
+          <div><b>UX and UI design</b><span>I designed the field app screens (login, map, tree detail, camera, add entry) and the staff dashboard. I tested them with landscaping students and fixed readability issues with fonts and colours.</span></div>
+          <div><b>Front-end development</b><span>I built the interface in Next.js and TypeScript, working with Claude Code.</span></div>
+          <div><b>Research and documentation</b><span>I wrote the research plan, merged the team’s findings into one document that defined the core user need, and produced the MVP definition, sprint plan and usability test plan.</span></div>
+          <div><b>Tech stack</b><span>Next.js, TypeScript, Supabase, Leaflet with OpenStreetMap, Docker, Figma</span></div>
+        </div>
 
-    <section class="cv-section">
-      <p class="cv-label">06</p>
-      <h2>Outcome</h2>
-      <p>
-        We presented a working platform to the stakeholders. It is built to be reused for any green space,
-        not only the Arboretum.
-      </p>
-    </section>
+        <div class="ed-pair">
+          <figure class="ed-media ed-guide"><img src="assets/projects/terra/design-guide.png" alt="Terra design guide: logo, colours, typography, buttons and map pins" /></figure>
+          <figure class="ed-media">
+            <img src="assets/projects/terra/field-test.jpg" alt="Testing the Terra field app with landscaping students in the Humber Arboretum" />
+            <figcaption class="cv-label">Field test with landscaping students in the Humber Arboretum</figcaption>
+          </figure>
+        </div>
+      </section>
 
-    <section class="cv-section">
-      <p class="cv-label">07</p>
-      <h2>What I learned</h2>
-      <p>
-        I came in with a design background and learned how designs become working software. I also learned
-        to speak up more in a team instead of letting documentation stand in for leadership.
-      </p>
-    </section>
-  </div>
+      <section class="cs-section ed-text" id="outcome">
+        <p class="cv-label">05 — Outcome</p>
+        <h2 class="ed-serif">A working platform, built to be reused</h2>
+        <p>We presented a working platform to the stakeholders. It is built to be reused for any green space, not only the Arboretum.</p>
 
-  <!-- Outcome: a photo of the stakeholder presentation or the team -->
-  <div class="cv-gallery">
-    <figure class="cv-g-wide"><div class="media-placeholder">Photo of the stakeholder presentation or the team</div></figure>
+        <!-- Demo account for visitors -->
+        <div class="ed-try">
+          <p class="ed-try-title">Try it yourself</p>
+          <a class="ed-try-link" href="https://www.terra-dashboard.com/login" target="_blank" rel="noopener">terra-dashboard.com ↗</a>
+          <dl>
+            <div><dt>Email</dt><dd>terra@test.com</dd></div>
+            <div><dt>Password</dt><dd>123456</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="cs-section" id="learned">
+        <p class="cv-label">06 — What I learned</p>
+        <div class="ed-quote">
+          <p class="ed-serif">“I came in with a design background and learned how designs become working software. I also learned to speak up more in a team instead of letting documentation stand in for leadership.”</p>
+        </div>
+      </section>
+
+      <section class="cs-section ed-text" id="team">
+        <div class="ed-team">
+          <div>
+            <p class="cv-label">07 — The team</p>
+            <img class="ed-team-logo" src="assets/projects/terra/debug-gang-logo.png" alt="Debug Gang team logo" />
+            <p>Debug Gang: five students from five countries, photographed in Vienna.</p>
+          </div>
+          <figure class="ed-media" style="margin:0"><img src="assets/projects/terra/team-vienna.jpg" alt="The Debug Gang, the Terra team, together in Vienna" /></figure>
+        </div>
+      </section>
+
+    </main>
   </div>
 
   <a class="cv-next" href="chromodynamics.html">
@@ -187,6 +199,8 @@
   </a>
 
   <script src="js/cover-page.js"></script>
+  <script src="js/case-index.js"></script>
+  <script src="js/lightbox.js"></script>
 
 </body>
 </html>

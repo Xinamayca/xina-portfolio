@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>REIA — Xinamayca de Cuba</title>
+  <title>REIA Motors — Xinamayca de Cuba</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://use.typekit.net/nid8ici.css">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon/favicon-32.png" />
@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="assets/icons/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="assets/icons/favicon/site.webmanifest" />
 </head>
-<body class="cover-page">
+<body class="cover-page hl-gradient" style="--accent: #8a2bc2; --highlight-gradient: linear-gradient(90deg, #9030e0, #e03090);">
 
     <nav class="navbar">
         <ul>
@@ -34,7 +34,7 @@
 
     <div class="cv-cover-content">
       <p class="cv-kicker">Project 03 · Freelance, Xinamayca Studio</p>
-      <h1 class="cv-title">REIA</h1>
+      <h1 class="cv-title">REIA Motors</h1>
       <dl class="cv-facts">
         <div><dt class="cv-label">Role</dt><dd>Web Designer &amp; Developer</dd></div>
         <div><dt class="cv-label">Timeline</dt><dd>Feb – Mar 2026</dd></div>
@@ -45,104 +45,100 @@
     </div>
   </header>
 
-  <div class="cv-text">
-    <p class="cv-intro">
-      <strong>A website the client can run themselves.</strong>
-      I designed and built the website for REIA Motors, a used-car dealer in Oranjestad, Aruba,
-      from client brief and prototype to a live site with a CMS the client manages themselves.
-    </p>
-    <p class="cv-role">
-      <span class="cv-label">My role</span>
-      Design and build, end to end. I designed the site in Adobe XD and built it myself with HTML, CSS and
-      JavaScript (AI-assisted, reviewed and debugged by me).
-    </p>
+  <!-- Case study body: statement and key numbers, then a sticky index (js/case-index.js) next to editorial sections -->
+  <div class="ed-top">
+    <p class="cv-label">REIA Motors · Freelance, Xinamayca Studio</p>
+    <p class="ed-statement ed-serif">A website the client can run themselves: designed and built for <em>REIA Motors</em>, a used-car dealer in Aruba, from brief to live site.</p>
+
+    <div class="ed-stats ed-stats-3">
+      <div><b class="ed-serif">1</b><span class="cv-label">Live website</span></div>
+      <div><b class="ed-serif">0</b><span class="cv-label">Developers needed to update it</span></div>
+      <div><b class="ed-serif">2</b><span class="cv-label">Roles: design &amp; build</span></div>
+    </div>
   </div>
 
-  <!-- PLACEHOLDER: screenshots of the XD designs and the live site (hero, car listing, nav on scroll),
-       saved in assets/projects/reia/ -->
-  <div class="cv-gallery">
-    <figure class="cv-g-large"><div class="media-placeholder">Image coming soon</div></figure>
-    <figure class="cv-g-side"><div class="media-placeholder">Image coming soon</div></figure>
-    <figure class="cv-g-third"><div class="media-placeholder">Image coming soon</div></figure>
-    <figure class="cv-g-third"><div class="media-placeholder">Image coming soon</div></figure>
-    <figure class="cv-g-third"><div class="media-placeholder">Image coming soon</div></figure>
-  </div>
+  <div class="cs-layout">
 
-  <div class="cv-text">
-    <section class="cv-section">
-      <p class="cv-label">01</p>
-      <h2>The client</h2>
-      <p>
-        REIA Motors is a used-car dealer in Oranjestad, Aruba, which also imports cars.
-        <!-- PLACEHOLDER: one sentence on who their customers are and what they had online before -->
-      </p>
-    </section>
+    <aside class="cs-index">
+      <ol>
+        <li><a href="#client"><span>01</span>The client</a></li>
+        <li><a href="#brief"><span>02</span>The brief</a></li>
+        <li><a href="#gradient"><span>03</span>The gradient</a></li>
+        <li><a href="#cms"><span>04</span>The CMS</a></li>
+        <li><a href="#role"><span>05</span>My role</a></li>
+      </ol>
+    </aside>
 
-    <section class="cv-section">
-      <p class="cv-label">02</p>
-      <h2>The brief</h2>
-      <p>
-        The client wanted a website that feels clean, sleek and luxurious, and one they could manage
-        themselves without calling a developer every time a car is sold or added.
-      </p>
-    </section>
+    <main class="cs-content">
 
-    <section class="cv-section">
-      <p class="cv-label">03</p>
-      <h2>Challenge: making a pink-purple gradient feel premium</h2>
-      <p>
-        The client’s brand colour is a pink-purple gradient. Used everywhere, it can easily feel loud
-        rather than luxurious. My solution was restraint: the gradient appears only in a few deliberate places:
-      </p>
-      <ul>
-        <li>the accent in the headline</li>
-        <li>buttons</li>
-        <li>the hover underline</li>
-        <li>a dark hero section, where it stands out most</li>
-        <li>a light navigation bar that appears on scroll</li>
-      </ul>
-      <p>
-        Everything else stays calm and neutral, so the gradient reads as a signature rather than decoration.
-        <!-- PLACEHOLDER: the fonts you used and why you chose them -->
-      </p>
-    </section>
+      <section class="cs-section ed-text" id="client">
+        <p class="cv-label">01 — The client</p>
+        <h2 class="ed-serif">A used-car dealer in Oranjestad</h2>
+        <p>
+          REIA Motors is a used-car dealer in Oranjestad, Aruba, which also imports cars.
+          <!-- PLACEHOLDER: one sentence on who their customers are and what they had online before -->
+        </p>
+        <figure class="ed-media">
+          <img src="assets/projects/reia/live-site-hero.jpg" alt="REIA Motors homepage: dark hero with the pink-purple gradient on the headline and search button" />
+          <figcaption class="cv-label">The live homepage, reiamotors.com</figcaption>
+        </figure>
+      </section>
 
-    <section class="cv-section">
-      <p class="cv-label">04</p>
-      <h2>Challenge: a CMS the client could use</h2>
-      <p>
-        The client wanted to manage their own listings. I set up Decap CMS on top of a GitHub repository,
-        deployed through Netlify, so they can add, edit and remove cars through an editor instead of touching code.
-        <!-- PLACEHOLDER: how you onboarded the client (a handover session, a guide, something else) -->
-      </p>
-    </section>
-  </div>
+      <section class="cs-section ed-text" id="brief">
+        <p class="cv-label">02 — The brief</p>
+        <h2 class="ed-serif">Clean, sleek, luxurious, and easy to manage</h2>
+        <p>
+          The client wanted a website that feels clean, sleek and luxurious, and one they could manage
+          themselves without calling a developer every time a car is sold or added.
+        </p>
+      </section>
 
-  <div class="cv-gallery">
-    <figure class="cv-g-wide"><div class="media-placeholder">Image coming soon</div></figure>
-  </div>
+      <section class="cs-section ed-text" id="gradient">
+        <p class="cv-label">03 — Challenge</p>
+        <h2 class="ed-serif">Making a pink-purple gradient feel premium</h2>
+        <p>
+          The client’s brand colour is a pink-purple gradient. Used everywhere, it can easily feel loud
+          rather than luxurious. My solution was restraint: the gradient appears only in a few deliberate places.
+        </p>
+        <div class="ed-rows">
+          <div><b>Headline</b><span>The accent word in the headline</span></div>
+          <div><b>Buttons</b><span>The main actions, like Search</span></div>
+          <div><b>Hover underline</b><span>A gradient line under links on hover</span></div>
+          <div><b>Dark hero</b><span>The hero section, where the gradient stands out most</span></div>
+          <div><b>Navigation</b><span>A light navigation bar that appears on scroll</span></div>
+        </div>
+        <p style="margin-top:20px">
+          Everything else stays calm and neutral, so the gradient reads as a signature rather than decoration.
+          <!-- PLACEHOLDER: the fonts you used and why you chose them -->
+        </p>
+      </section>
 
-  <div class="cv-text">
-    <section class="cv-section">
-      <p class="cv-label">05</p>
-      <h2>Process</h2>
-      <!-- PLACEHOLDER: what you showed the client in Adobe XD, how many feedback rounds, what changed -->
-      <p class="cv-todo">Text coming soon.</p>
-    </section>
+      <section class="cs-section ed-text" id="cms">
+        <p class="cv-label">04 — Challenge</p>
+        <h2 class="ed-serif">A CMS the client could use</h2>
+        <p>
+          The client wanted to manage their own listings. I set up Decap CMS on top of a GitHub repository,
+          deployed through Netlify, so they can add, edit and remove cars through an editor instead of touching code.
+          <!-- PLACEHOLDER: how you onboarded the client (a handover session, a guide, something else) -->
+        </p>
+      </section>
 
-    <section class="cv-section">
-      <p class="cv-label">06</p>
-      <h2>Result</h2>
-      <!-- PLACEHOLDER: what happened after launch; only real results, and the client's OK for any quote -->
-      <p class="cv-todo">Text coming soon.</p>
-    </section>
+      <section class="cs-section ed-text" id="role">
+        <p class="cv-label">05 — My role</p>
+        <h2 class="ed-serif">Design and build, end to end</h2>
+        <div class="ed-rows">
+          <div><b>Design</b><span>I designed the site in Adobe XD, from the client brief to the prototype.</span></div>
+          <div><b>Development</b><span>I built it myself with HTML, CSS and JavaScript (AI-assisted, reviewed and debugged by me).</span></div>
+          <div><b>CMS and hosting</b><span>Decap CMS, GitHub and Netlify, so the client can manage their own listings.</span></div>
+        </div>
+        <div class="ed-try">
+          <p class="ed-try-title">See it live</p>
+          <a class="ed-try-link" href="https://reiamotors.com/" target="_blank" rel="noopener">reiamotors.com ↗</a>
+        </div>
+        <!-- PLACEHOLDER (hidden until written): Process, Result and Reflection sections, with matching index items -->
+      </section>
 
-    <section class="cv-section">
-      <p class="cv-label">07</p>
-      <h2>Reflection</h2>
-      <!-- PLACEHOLDER: 2-3 sentences in your own voice -->
-      <p class="cv-todo">Text coming soon.</p>
-    </section>
+    </main>
   </div>
 
   <a class="cv-next" href="terra.html">
@@ -151,6 +147,8 @@
   </a>
 
   <script src="js/cover-page.js"></script>
+  <script src="js/case-index.js"></script>
+  <script src="js/lightbox.js"></script>
 
 </body>
 </html>
