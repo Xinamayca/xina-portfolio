@@ -1597,6 +1597,107 @@ section {
   color: var(--accent);
 }
 
+/* Colour palette (TERRA, under the logo): a colour chip with its label below, no card behind it.
+   Each <li> sets --c, its colour. */
+.ed-palette {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ed-palette li {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #777;
+}
+
+/* The colour chip */
+.ed-palette li::before {
+  content: "";
+  display: block;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: var(--c);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06); /* keeps the cream visible */
+  transition: transform 0.25s ease;
+}
+
+.ed-palette li:hover::before {
+  transform: translateY(-4px);
+}
+
+.ed-palette b {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+}
+
+.ed-palette code {
+  margin-top: 6px;
+  font-family: inherit;
+  letter-spacing: 0.04em;
+  color: #111;
+}
+
+/* Type specimen (TERRA, under the palette): one column per font, a big "Aa", name, role and a sample line */
+.ed-type {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.ed-type > div {
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+  border-top: 1px solid #e4e4e4;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #777;
+}
+
+.ed-type .ed-type-aa {
+  margin: 0 0 10px;
+  font-size: 72px;
+  line-height: 1;
+  color: #111;
+}
+
+.ed-type b {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+}
+
+.ed-type .ed-type-sample {
+  margin: 14px 0 0;
+  font-size: 18px;
+  line-height: 1.35;
+  color: #333;
+}
+
+.ed-type-georgia .ed-type-aa,
+.ed-type-georgia .ed-type-sample {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+}
+
+.ed-type-dmsans .ed-type-aa,
+.ed-type-dmsans .ed-type-sample {
+  font-family: "DM Sans", sans-serif;
+}
+
+.ed-type-dmsans .ed-type-aa {
+  font-weight: 500;
+}
+
 /* Logo inside a row (TERRA, Brand and design system), under the text */
 .ed-media.ed-row-logo {
   margin-top: 20px;
@@ -2151,6 +2252,10 @@ section {
   .cs-phones {
     grid-auto-columns: 1fr; /* the phones stay on one row */
     gap: 10px;
+  }
+
+  .ed-palette {
+    grid-template-columns: repeat(3, 1fr); /* a phone: three cards per row */
   }
 
   .ed-stack {
