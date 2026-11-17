@@ -1339,7 +1339,7 @@ section {
 
 .ed-statement {
   max-width: 980px;
-  margin-top: 16px;
+  margin-top: 0;
   font-size: clamp(30px, 3.4vw, 50px);
   line-height: 1.12;
   letter-spacing: -0.01em;
@@ -1582,6 +1582,16 @@ section {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* Phone mockups (screens placed in assets/mockups/phone-mockup.png): shown at their own size */
+.cs-phones figure.cs-mock {
+  aspect-ratio: auto;
+  background: none;
+}
+
+.cs-phones .cs-mock img {
+  height: auto;
 }
 
 .cs-phones .media-placeholder {
@@ -2180,7 +2190,7 @@ section {
    Lightbox (js/lightbox.js): click a project image to see it large
    =========================== */
 .lightbox-trigger {
-  cursor: zoom-in;
+  cursor: pointer;
   transition: opacity 0.2s ease;
 }
 
@@ -2221,7 +2231,7 @@ html.lightbox-open {
   max-width: min(1400px, 100%);
   height: 100%;
   margin: 0;
-  cursor: zoom-out;
+  cursor: pointer; /* clicking the background closes the image */
 }
 
 .lightbox-img {
