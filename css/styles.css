@@ -1564,7 +1564,8 @@ section {
 
 .cs-phones {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 280px)); /* one to three screens, centred */
+  grid-auto-flow: column; /* every screen on one row, shrinking to fit, centred */
+  grid-auto-columns: minmax(0, 280px);
   justify-content: center;
   gap: 16px;
   margin-top: 16px;
@@ -1592,6 +1593,12 @@ section {
 
 .cs-phones .cs-mock img {
   height: auto;
+}
+
+/* Phones inside a row (TERRA, UX and UI design): lined up with the text above them */
+.ed-rows .cs-phones {
+  justify-content: start;
+  margin-top: 20px;
 }
 
 .cs-phones .media-placeholder {
@@ -2098,7 +2105,8 @@ section {
   }
 
   .cs-phones {
-    grid-template-columns: 1fr 1fr;
+    grid-auto-columns: 1fr; /* the phones stay on one row */
+    gap: 10px;
   }
 
   .cv-section {
