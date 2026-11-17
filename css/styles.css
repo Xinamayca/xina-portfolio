@@ -1848,49 +1848,25 @@ section {
 }
 
 /* "Try it yourself" block with the demo login */
-.ed-try {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 12px 32px;
-  margin-top: 24px;
-  padding: 18px 22px;
-  border-left: 3px solid var(--accent);
-  background: #f6f6f4;
-}
-
-.ed-text p.ed-try-title {
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+/* A link inside running text: same colour as the text, with an underline */
+.ed-inline-link {
   color: #111;
-}
-
-.ed-try-link {
-  font-size: 15px;
-  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  transition: color 0.2s ease;
 }
 
-.ed-try dl {
-  display: flex;
-  gap: 24px;
+.ed-inline-link:hover {
+  color: var(--accent);
 }
 
-.ed-try dt {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #777;
-}
-
-.ed-try dd {
-  font-family: Arial, sans-serif;
-  font-size: 15px;
+/* Login details inside running text: just a touch darker so they're easy to spot and copy */
+.ed-mono {
   color: #111;
-  user-select: all; /* one click selects the whole value */
+  font-weight: 600;
 }
+
 
 /* Pull quote */
 .ed-quote {
