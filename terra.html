@@ -145,15 +145,19 @@
                 <p class="ed-type-aa">Aa</p>
                 <b>Georgia</b>
                 <span>Headings and wordmark · Bold</span>
-                <p class="ed-type-sample">Log an observation</p>
               </div>
               <div class="ed-type-dmsans">
                 <p class="ed-type-aa">Aa</p>
                 <b>DM Sans</b>
                 <span>Body text and interface · Regular, Medium</span>
-                <p class="ed-type-sample">Stable growth. Some lower branch die-off is normal.</p>
               </div>
             </div>
+            <!-- Terra map pins, one per status; click one to see its selected pulse (js/pin-demo.js) -->
+            <ul class="ed-pins">
+              <li><button class="pin" data-status="approved" aria-label="Approved pin"></button><b>Approved</b><span>Verified by staff</span></li>
+              <li><button class="pin" data-status="pending" aria-label="Pending pin"></button><b>Pending</b><span>Waiting for review</span></li>
+              <li><button class="pin" data-status="flagged" aria-label="Flagged pin"></button><b>Flagged</b><span>Needs attention</span></li>
+            </ul>
           </div></div>
           <div><b>UX and UI design</b><div>I designed the field app screens (login, map, tree detail, camera, add entry) and the staff dashboard. I tested them with landscaping students and fixed readability issues with fonts and colours.
             <!-- Field app screens, each placed in the phone mockup (assets/mockups/phone-mockup.png) as its own image -->
@@ -163,7 +167,12 @@
               <figure class="cs-mock"><img src="assets/projects/terra/phone-tree.png" alt="Terra field app: tree detail sheet with CO2 absorbed, health score, wildlife and a Log an observation button" /></figure>
             </div>
           </div></div>
-          <div><b>Front-end development</b><span>I built the interface in Next.js and TypeScript, working with Claude Code, and used Git and GitHub for version control, pushing my code to the team repo.</span></div>
+          <div><b>Front-end development</b><div>I built the interface in Next.js and TypeScript, working with Claude Code, and used Git and GitHub for version control, pushing my code to the team repo.
+            <figure class="ed-media ed-row-logo">
+              <img src="assets/projects/terra/staff-dashboard-zoomed.jpg" alt="Terra staff dashboard: arboretum map with clustered observation pins, a tree popup and the review queue of pending entries" />
+              <figcaption class="cv-label">Staff dashboard, built in Next.js: map, observation clusters and the review queue</figcaption>
+            </figure>
+          </div></div>
           <div><b>Research and documentation</b><span>I wrote the research plan, merged the team’s findings into one document that defined the core user need, and produced the MVP definition, sprint plan and usability test plan.</span></div>
           <div><b>Tools and tech</b><div>
             <!-- Logos: Simple Icons (simpleicons.org), shown in grey and green on hover -->
@@ -227,6 +236,7 @@
   <script src="js/cover-page.js"></script>
   <script src="js/case-index.js"></script>
   <script src="js/lightbox.js"></script>
+  <script src="js/pin-demo.js"></script>
 
 </body>
 </html>

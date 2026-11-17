@@ -1541,6 +1541,16 @@ section {
   margin-top: 10px;
 }
 
+/* Photo captions: small, quiet sentence case in the body font, not the big uppercase section-label style */
+.cs-section figcaption.cv-label {
+  font-family: 'helvetica', Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #777;
+}
+
 .ed-pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1648,8 +1658,8 @@ section {
 /* Type specimen (TERRA, under the palette): one column per font, a big "Aa", name, role and a sample line */
 .ed-type {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 240px)); /* the two fonts side by side, close together */
+  gap: 16px;
   margin-top: 32px;
 }
 
@@ -1658,20 +1668,20 @@ section {
   flex-direction: column;
   padding-top: 16px;
   border-top: 1px solid #e4e4e4;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.45;
   color: #777;
 }
 
 .ed-type .ed-type-aa {
-  margin: 0 0 10px;
-  font-size: 72px;
+  margin: 0 0 14px;
+  font-size: 128px;
   line-height: 1;
   color: #111;
 }
 
 .ed-type b {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: #111;
 }
@@ -1696,6 +1706,90 @@ section {
 
 .ed-type-dmsans .ed-type-aa {
   font-weight: 500;
+}
+
+/* Map pins (TERRA, under the fonts, js/pin-demo.js): one per status, click to see the selected pulse */
+.ed-pins {
+  display: flex;
+  gap: 48px;
+  margin: 32px 0 0;
+  padding: 32px 0 0;
+  border-top: 1px solid #e4e4e4;
+  list-style: none;
+}
+
+.ed-pins li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 15px;
+  line-height: 1.45;
+  color: #777;
+}
+
+.ed-pins b {
+  margin-top: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+}
+
+.pin {
+  position: relative;
+  width: 40px;
+  height: 60px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transform-origin: 50% 100%;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pin svg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
+}
+
+.pin:hover {
+  transform: scale(1.08);
+}
+
+.pin.selected {
+  transform: scale(1.15);
+  z-index: 2;
+}
+
+.pin:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* The pulse: a circle that grows and fades from the pin's round head (the icon), behind the pin,
+   in the status colour (set by the script). The head's centre is at 50% across and a third down. */
+.pin-pulse {
+  position: absolute;
+  left: 50%;
+  top: 33.3%;
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border-radius: 50%;
+  background: var(--pulse);
+  opacity: 0.6;
+  animation: pin-pulse 1.6s ease-out infinite;
+}
+
+@keyframes pin-pulse {
+  from { transform: scale(0.9); opacity: 0.6; }
+  to   { transform: scale(2.2); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pin-pulse { animation: none; opacity: 0.3; transform: scale(1.4); }
 }
 
 /* Logo inside a row (TERRA, Brand and design system), under the text */
