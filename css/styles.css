@@ -1320,8 +1320,8 @@ section {
    --accent is the project colour (Terra forest green by default); set it on <body> per project.
    =========================== */
 .cover-page {
-  --accent: #2e4a2a;
-  --highlight: #3f6b39; /* brighter Terra forest: the highlighted words in the statement */
+  --accent: #2d5c2d;
+  --highlight: var(--accent); /* the highlighted words in the statement */
 }
 
 .ed-serif {
@@ -1563,6 +1563,38 @@ section {
 
 .ed-media.ed-logo-box img {
   width: 220px;
+}
+
+/* Tech stack logos (TERRA): grey icons with their names, green on hover; spread over one row */
+.ed-stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px 12px;
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ed-stack li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #444;
+  font-size: 12px;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.ed-stack svg {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
+}
+
+.ed-stack li:hover {
+  color: var(--accent);
 }
 
 /* Logo inside a row (TERRA, Brand and design system), under the text */
@@ -2121,6 +2153,11 @@ section {
     gap: 10px;
   }
 
+  .ed-stack {
+    justify-content: flex-start; /* wraps on a phone: line up from the left instead of spreading */
+    gap: 16px 22px;
+  }
+
   .cv-section {
     display: block;
   }
@@ -2209,14 +2246,9 @@ section {
 /* ===========================
    Lightbox (js/lightbox.js): click a project image to see it large
    =========================== */
-/* Hover glow: Terra green by default; the gradient pages (Chromodynamics, REIA) glow in their own accent.
+/* Hover glow in the page colour (--accent): Terra green, Chromodynamics red, REIA purple.
    drop-shadow follows the image's shape, so the see-through phone mockups glow around the phone, not a box. */
 .cover-page {
-  --glow-line: rgba(79, 154, 69, 0.55);
-  --glow: rgba(79, 154, 69, 0.35);
-}
-
-.cover-page.hl-gradient {
   --glow-line: color-mix(in srgb, var(--accent) 55%, transparent);
   --glow: color-mix(in srgb, var(--accent) 35%, transparent);
 }
