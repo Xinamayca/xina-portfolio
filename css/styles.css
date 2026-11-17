@@ -1371,6 +1371,13 @@ section {
   padding: 22px 0;
 }
 
+/* The black divider on its own, for a page without the numbers row (TERRA) */
+.ed-rule {
+  margin: 56px 0 0;
+  border: 0;
+  border-top: 1px solid #111;
+}
+
 .ed-stats.ed-stats-3 {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -1556,6 +1563,11 @@ section {
 
 .ed-media.ed-logo-box img {
   width: 220px;
+}
+
+/* Logo inside a row (TERRA, Brand and design system), under the text */
+.ed-media.ed-row-logo {
+  margin-top: 20px;
 }
 
 .ed-guide img {
@@ -2197,13 +2209,33 @@ section {
 /* ===========================
    Lightbox (js/lightbox.js): click a project image to see it large
    =========================== */
-.lightbox-trigger {
-  cursor: pointer;
-  transition: opacity 0.2s ease;
+/* Hover glow: Terra green by default; the gradient pages (Chromodynamics, REIA) glow in their own accent.
+   drop-shadow follows the image's shape, so the see-through phone mockups glow around the phone, not a box. */
+.cover-page {
+  --glow-line: rgba(79, 154, 69, 0.55);
+  --glow: rgba(79, 154, 69, 0.35);
 }
 
+.cover-page.hl-gradient {
+  --glow-line: color-mix(in srgb, var(--accent) 55%, transparent);
+  --glow: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.lightbox-trigger {
+  cursor: pointer;
+  transition: filter 0.25s ease;
+}
+
+/* A soft-edged line hugging the image (barely blurred), with a wider glow around it */
 .lightbox-trigger:hover {
-  opacity: 0.88;
+  filter:
+    drop-shadow(0 0 1.5px var(--glow-line))
+    drop-shadow(0 0 10px var(--glow));
+}
+
+/* Let the glow spill outside the image instead of being cut off by its frame */
+.cs-content figure {
+  overflow: visible;
 }
 
 .lightbox-trigger:focus-visible {
