@@ -1673,7 +1673,7 @@ section {
   color: #777;
 }
 
-.ed-type .ed-type-aa {
+.ed-type p.ed-type-aa { /* "p." so it beats the general .ed-text paragraph size */
   margin: 0 0 14px;
   font-size: 128px;
   line-height: 1;
@@ -1790,6 +1790,19 @@ section {
 
 @media (prefers-reduced-motion: reduce) {
   .pin-pulse { animation: none; opacity: 0.3; transform: scale(1.4); }
+}
+
+/* A paragraph inside a row, after an image (TERRA, the testing note under the phones) */
+.ed-text p.ed-row-note { /* same size as the row text around it */
+  margin-top: 28px;
+  max-width: none;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* Two screenshots side by side inside a row (TERRA, Front-end development), right under the one above */
+.ed-pair.ed-row-pair {
+  margin-top: 16px;
 }
 
 /* Logo inside a row (TERRA, Brand and design system), under the text */

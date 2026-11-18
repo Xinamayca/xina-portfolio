@@ -65,11 +65,12 @@
       <ol>
         <li><a href="#context"><span>01</span>Introduction</a></li>
         <li><a href="#problem"><span>02</span>The problem</a></li>
-        <li><a href="#solution"><span>03</span>The solution</a></li>
-        <li><a href="#role"><span>04</span>My role</a></li>
-        <li><a href="#outcome"><span>05</span>Outcome</a></li>
-        <li><a href="#learned"><span>06</span>What I learned</a></li>
-        <li><a href="#team"><span>07</span>The team</a></li>
+        <li><a href="#research"><span>03</span>Research</a></li>
+        <li><a href="#solution"><span>04</span>The solution</a></li>
+        <li><a href="#role"><span>05</span>My role</a></li>
+        <li><a href="#outcome"><span>06</span>Outcome</a></li>
+        <li><a href="#learned"><span>07</span>What I learned</a></li>
+        <li><a href="#team"><span>08</span>The team</a></li>
       </ol>
     </aside>
 
@@ -104,8 +105,38 @@
         </div>
       </section>
 
+      <section class="cs-section ed-text" id="research">
+        <p class="cv-label">03 — Research</p>
+        <h2 class="ed-serif">Three people, one trusted record</h2>
+        <p>
+          We started from one question: how might we help the people who look after the Arboretum monitor its
+          landscape, with a tool that is accessible, reliable and low-cost? I merged the team’s findings into one
+          research report.
+        </p>
+        <p>
+          Comparing existing tools (Fulcrum, iNaturalist, HealthyPlan.City and the Tree Equity Score Analyzer)
+          showed the gap: there are professional field tools and there are citizen-science apps, but nothing
+          connects the two. Meanwhile, staff were stuck with scattered, outdated data.
+          We turned this into three personas and wrote user stories for each:
+        </p>
+        <div class="ed-rows">
+          <div><b>Matthew, the visitor</b><span>Wants quick, glanceable information, without needing any botanical knowledge. This became the map and tree details.</span></div>
+          <div><b>Laura, sustainability staff</b><span>Needs credible, reportable data for Humber’s 2029 net-zero goal. In her words: <em>“We need data we can actually trust and report on, not spreadsheets nobody’s updated in 14 years.”</em> This became the dashboard.</span></div>
+          <div><b>Fern, the citizen scientist</b><span>A retired forest ranger who wants his observations to actually count. This became logging observations.</span></div>
+        </div>
+        <figure class="ed-media">
+          <img src="assets/projects/terra/personas.jpg" alt="Persona sheets for Matthew Sterling (public visitor), Laura Bennett (Office of Sustainability) and Fern Walker (retired forest ranger), each with a frustration, goal, quote and short bio" />
+          <figcaption class="cv-label">Our persona sheets: Matthew, Laura and Fern</figcaption>
+        </figure>
+        <p style="margin-top:20px">
+          That is why every observation goes through staff review before it joins the official record: the
+          community can contribute without weakening the data staff report on. We prioritised all user stories
+          with MoSCoW and deliberately left some out, like water health tracking, to keep the scope realistic.
+        </p>
+      </section>
+
       <section class="cs-section ed-text" id="solution">
-        <p class="cv-label">03 — The solution</p>
+        <p class="cv-label">04 — The solution</p>
         <h2 class="ed-serif">A field app paired with a staff dashboard</h2>
         <p>
           Terra is a mobile field app paired with a staff dashboard. Visitors log in, explore the arboretum map,
@@ -126,10 +157,10 @@
       </section>
 
       <section class="cs-section ed-text" id="role">
-        <p class="cv-label">04 — My role</p>
+        <p class="cv-label">05 — My role</p>
         <h2 class="ed-serif">Brand, UX/UI and front-end</h2>
         <div class="ed-rows">
-          <div><b>Brand and design system</b><div>I named the platform Terra, which means <em>ground</em> in Papiamentu, my native language, and also <em>earth</em> in Latin. I designed the logo, colour palette, type pairing, map pins and style guide. I made it a separate brand on purpose, so the Office of Sustainability can extend it to other green spaces later.
+          <div><b>Brand and design system</b><div>Before any development started, I redesigned the Terra app and brand from scratch, based on the feedback we got after week 1. I named the platform Terra, which means <em>ground</em> in Papiamentu, my native language, and also <em>earth</em> in Latin. The logo, colour palette, type pairing, map pins and style guide were mine to own, and I made sure everything felt like one consistent product. I made it a separate brand on purpose, so the Office of Sustainability can extend it to other green spaces later.
             <figure class="ed-media ed-row-logo"><img src="assets/projects/terra/terra-logo.png" alt="The Terra logo, a leaf with a tree inside next to the word Terra, on light cream and on dark green" /></figure>
             <!-- Terra colour palette -->
             <ul class="ed-palette">
@@ -160,17 +191,38 @@
             </ul>
           </div></div>
           <div><b>UX and UI design</b><div>I designed the field app screens (login, map, tree detail, camera, add entry) and the staff dashboard. I tested them with landscaping students and fixed readability issues with fonts and colours.
+            My main inspiration was Apple's glassmorphism style: the floating, see-through panels on the dashboard come from that, and I feel it came together really nicely.
             <!-- Field app screens, each placed in the phone mockup (assets/mockups/phone-mockup.png) as its own image -->
             <div class="cs-phones">
               <figure class="cs-mock"><img src="assets/projects/terra/phone-login.png" alt="Terra field app: login screen, shown on a phone" /></figure>
               <figure class="cs-mock"><img src="assets/projects/terra/phone-map.png" alt="Terra field app: map of the arboretum with coloured tree pins and a species search bar" /></figure>
               <figure class="cs-mock"><img src="assets/projects/terra/phone-tree.png" alt="Terra field app: tree detail sheet with CO2 absorbed, health score, wildlife and a Log an observation button" /></figure>
             </div>
+            <!-- Testing: before / after of the dashboard background -->
+            <p class="ed-row-note">
+              Testing also showed where my inspiration went too far: with the glass effect on the whole page, the
+              green of the map bled through behind the entries, which made them hard to read. I gave the pages a
+              solid cream background and kept the glass for the floating bar only.
+            </p>
+            <div class="ed-pair ed-row-pair">
+              <figure class="ed-media">
+                <img src="assets/projects/terra/entries-before.jpg" alt="Before: the dashboard entries page with a see-through glass background, where the green of the map shows through behind the table" />
+                <figcaption class="cv-label">Before: the map’s green bleeds through the glass</figcaption>
+              </figure>
+              <figure class="ed-media">
+                <img src="assets/projects/terra/entries-after.jpg" alt="After: the same entries page on a solid cream background, with clearer contrast for the table" />
+                <figcaption class="cv-label">After: a solid cream background, easy to read</figcaption>
+              </figure>
+            </div>
           </div></div>
-          <div><b>Front-end development</b><div>I built the interface in Next.js and TypeScript, working with Claude Code, and used Git and GitHub for version control, pushing my code to the team repo.
+          <div><b>Front-end development</b><div>I worked mostly on the staff dashboard: designing the UI and building its features in Next.js and TypeScript. I also built the visual layer of the mobile app screens: the layout, the components and the look. TypeScript was new to me, so I worked a lot with Claude Code, but I made sure I understood the structure of what I was writing instead of just copying it. I used Git and GitHub for version control, pushing my code to the team repo.
             <figure class="ed-media ed-row-logo">
               <img src="assets/projects/terra/staff-dashboard-zoomed.jpg" alt="Terra staff dashboard: arboretum map with clustered observation pins, a tree popup and the review queue of pending entries" />
               <figcaption class="cv-label">Staff dashboard, built in Next.js: map, observation clusters and the review queue</figcaption>
+            </figure>
+            <figure class="ed-media ed-row-logo">
+              <img src="assets/projects/terra/dashboard-review.jpg" alt="Terra dashboard review window: a submitted Common Oak with its photo, editable fields and Decline and Approve buttons" />
+              <figcaption class="cv-label">Reviewing an observation: edit it, then approve or decline</figcaption>
             </figure>
           </div></div>
           <div><b>Research and documentation</b><span>I wrote the research plan, merged the team’s findings into one document that defined the core user need, and produced the MVP definition, sprint plan and usability test plan.</span></div>
@@ -192,7 +244,7 @@
       </section>
 
       <section class="cs-section ed-text" id="outcome">
-        <p class="cv-label">05 — Outcome</p>
+        <p class="cv-label">06 — Outcome</p>
         <h2 class="ed-serif">A working platform, built to be reused</h2>
         <p>We presented a working platform to the stakeholders. It is built to be reused for any green space, not only the Arboretum.</p>
 
@@ -206,20 +258,20 @@
       </section>
 
       <section class="cs-section" id="learned">
-        <p class="cv-label">06 — What I learned</p>
+        <p class="cv-label">07 — What I learned</p>
         <div class="ed-quote">
-          <p class="ed-serif">“I came in with a design background and learned how designs become working software. I also learned to speak up more in a team instead of letting documentation stand in for leadership.”</p>
+          <p class="ed-serif">“I came in wanting to learn something outside of design. I am leaving with commits in a shared codebase, my first real TypeScript, and a lot more confidence working in a team. I would do it all over again in a heartbeat.”</p>
         </div>
       </section>
 
       <section class="cs-section ed-text" id="team">
         <div class="ed-team">
           <div>
-            <p class="cv-label">07 — The team</p>
-            <img class="ed-team-logo" src="assets/projects/terra/debug-gang-logo.png" alt="Debug Gang team logo" />
-            <p>Debug Gang: five students from five countries, photographed in Vienna.</p>
+            <p class="cv-label">08 — The team</p>
+            <img class="ed-team-logo" src="assets/projects/terra/debug-gang-logo.png" alt="De-Bug Gang team logo" />
+            <p>De-Bug Gang: five students from five countries, photographed in Vienna.</p>
           </div>
-          <figure class="ed-media" style="margin:0"><img src="assets/projects/terra/team-vienna.jpg" alt="The Debug Gang, the Terra team, together in Vienna" /></figure>
+          <figure class="ed-media" style="margin:0"><img src="assets/projects/terra/team-vienna.jpg" alt="The De-Bug Gang, the Terra team, together in Vienna" /></figure>
         </div>
       </section>
 
