@@ -1,6 +1,6 @@
 // Project pages: click an image to see it large. Close with the ✕, a click on the background or Esc;
 // flip through the page's images with the arrows or the ← → keys.
-const lightboxImages = [...document.querySelectorAll(".cs-content img")];
+const lightboxImages = [...document.querySelectorAll(".cs-content img:not(.no-lightbox)")];
 
 if (lightboxImages.length) {
     const box = document.createElement("div");

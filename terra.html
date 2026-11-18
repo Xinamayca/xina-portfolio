@@ -161,7 +161,11 @@
         <h2 class="ed-serif">Brand, UX/UI and front-end</h2>
         <div class="ed-rows">
           <div><b>Brand and design system</b><div>Before any development started, I redesigned the Terra app and brand from scratch, based on the feedback we got after week 1. I named the platform Terra, which means <em>ground</em> in Papiamentu, my native language, and also <em>earth</em> in Latin. The logo, colour palette, type pairing, map pins and style guide were mine to own, and I made sure everything felt like one consistent product. I made it a separate brand on purpose, so the Office of Sustainability can extend it to other green spaces later.
-            <figure class="ed-media ed-row-logo"><img src="assets/projects/terra/terra-logo.png" alt="The Terra logo, a leaf with a tree inside next to the word Terra, on light cream and on dark green" /></figure>
+            <!-- The two logo versions, each on its brand colour; they lift on hover like the colour chips -->
+            <div class="ed-logos">
+              <div style="--c:#F5F1EB"><img class="no-lightbox" src="assets/projects/terra/terra-logo-light.png" alt="The Terra logo in forest green on cream" /></div>
+              <div style="--c:#2E4A2A"><img class="no-lightbox" src="assets/projects/terra/terra-logo-dark.png" alt="The Terra logo in cream on forest green" /></div>
+            </div>
             <!-- Terra colour palette -->
             <ul class="ed-palette">
               <li style="--c:#2E4A2A"><b>Forest</b><span>Primary</span><code>#2E4A2A</code></li>
@@ -189,6 +193,7 @@
               <li><button class="pin" data-status="pending" aria-label="Pending pin"></button><b>Pending</b><span>Waiting for review</span></li>
               <li><button class="pin" data-status="flagged" aria-label="Flagged pin"></button><b>Flagged</b><span>Needs attention</span></li>
             </ul>
+            <p class="ed-pins-hint">Click a pin to see how it looks when it is selected on the map.</p>
           </div></div>
           <div><b>UX and UI design</b><div>I designed the field app screens (login, map, tree detail, camera, add entry) and the staff dashboard. I tested them with landscaping students and fixed readability issues with fonts and colours.
             My main inspiration was Apple's glassmorphism style: the floating, see-through panels on the dashboard come from that, and I feel it came together really nicely.

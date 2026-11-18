@@ -1675,7 +1675,7 @@ section {
 
 .ed-type p.ed-type-aa { /* "p." so it beats the general .ed-text paragraph size */
   margin: 0 0 14px;
-  font-size: 128px;
+  font-size: 84px;
   line-height: 1;
   color: #111;
 }
@@ -1790,6 +1790,43 @@ section {
 
 @media (prefers-reduced-motion: reduce) {
   .pin-pulse { animation: none; opacity: 0.3; transform: scale(1.4); }
+}
+
+/* Logo tiles (TERRA, Brand and design system): each logo version on its brand colour,
+   rounded and lifting on hover like the colour chips below. Each tile sets --c, its background. */
+.ed-logos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.ed-logos > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 2 / 1;
+  border-radius: 8px;
+  background: var(--c);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06); /* keeps the cream tile's edge visible */
+  transition: transform 0.25s ease;
+}
+
+.ed-logos > div:hover {
+  transform: translateY(-4px);
+}
+
+.ed-logos img {
+  width: 100%; /* the files have their own empty space around the logo */
+  height: auto;
+}
+
+/* Small hint under the map pins that they can be clicked */
+.ed-text p.ed-pins-hint {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #777;
 }
 
 /* A paragraph inside a row, after an image (TERRA, the testing note under the phones) */
