@@ -1541,6 +1541,12 @@ section {
   margin-top: 10px;
 }
 
+/* Text that follows an image (or its caption) gets the same breathing room as the space above the image */
+.ed-text :is(figure, .ed-pair, .ed-trio, .ed-logos, .ed-palette, .ed-type) + p:not(.cv-label),
+.ed-text p.cv-label + p:not(.cv-label) {
+  margin-top: 32px;
+}
+
 /* Photo captions: small, quiet sentence case in the body font, not the big uppercase section-label style */
 .cs-section figcaption.cv-label {
   font-family: 'helvetica', Arial, sans-serif;
